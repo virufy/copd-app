@@ -23,6 +23,7 @@ import { scrollToTop } from 'helper/scrollHelper';
 
 // Components
 import OptionList from 'components/OptionList';
+import OptionListMulti from 'components/OptionListMulti';
 import WizardButtons from 'components/WizardButtons';
 
 // Styles
@@ -113,6 +114,336 @@ const Step2 = ({
     },
   ];
 
+  const ageOptions = [
+    {
+      value: '<18 years',
+      label: t('questionary:step1.options3.<18 years'),
+    },
+    {
+      value: '18-45',
+      label: t('questionary:step1.options3.18-45'),
+    },
+    {
+      value: '45-65',
+      label: t('questionary:step1.options3.45-65'),
+    },
+    {
+      value: '>65',
+      label: t('questionary:step1.options3.>65'),
+    },
+    {
+      value: 'Decline to answer',
+      label: t('questionary:step1.options3.Decline to answer'),
+    },
+  ];
+
+  const ethnicityOptions = [
+    {
+      value: 'American Indian or Alaska Native',
+      label: t('questionary:step1.options4.American Indian or Alaska Native'),
+    },
+    {
+      value: 'Asian',
+      label: t('questionary:step1.options4.Asian'),
+    },
+    {
+      value: 'Black or African American',
+      label: t('questionary:step1.options4.Black or African American'),
+    },
+    {
+      value: 'Hispanic, Latino, or Spanish Origin',
+      label: t('questionary:step1.options4.Hispanic, Latino, or Spanish Origin'),
+    },
+    {
+      value: 'White',
+      label: t('questionary:step1.options4.White'),
+    },
+    {
+      value: 'Other',
+      label: t('questionary:step1.options4.Other'),
+    },
+    {
+      value: 'Decline to answer',
+      label: t('questionary:step1.options4.Decline to answer'),
+    },
+  ];
+
+  const genderOptions = [
+    {
+      value: 'Female',
+      label: t('questionary:step1.options5.Female'),
+    },
+    {
+      value: 'Male',
+      label: t('questionary:step1.options5.Male'),
+    },
+    {
+      value: 'Transgender',
+      label: t('questionary:step1.options5.Transgender'),
+    },
+    {
+      value: 'Other',
+      label: t('questionary:step1.options5.Other'),
+    },
+  ];
+
+  const biologicalSexOptions = [
+    {
+      value: 'Female',
+      label: t('questionary:step1.options6.Female'),
+    },
+    {
+      value: 'Male',
+      label: t('questionary:step1.options6.Male'),
+    },
+    {
+      value: 'Decline to answer',
+      label: t('questionary:step1.options6.Decline to answer'),
+    },
+  ];
+
+  const conditionOptions = [
+    {
+      value: 'Allergies',
+      label: t('questionary:step1.options7.Allergies'),
+    },
+    {
+      value: 'Asthma',
+      label: t('questionary:step1.options7.Asthma'),
+    },
+    {
+      value: 'Bronchitis',
+      label: t('questionary:step1.options7.Bronchitis'),
+    },
+    {
+      value: 'Congestive heart failure',
+      label: t('questionary:step1.options7.Congestive heart failure'),
+    },
+    {
+      value: 'Cough from other medical conditions',
+      label: t('questionary:step1.options7.Cough from other medical conditions'),
+    },
+    {
+      value: 'Cystic fibrosis',
+      label: t('questionary:step1.options7.Cystic fibrosis'),
+    },
+    {
+      value: 'Emphysema',
+      label: t('questionary:step1.options7.Emphysema'),
+    },
+    {
+      value: 'Extreme obesity',
+      label: t('questionary:step1.options7.Extreme obesity'),
+    },
+    {
+      value: 'HIV',
+      label: t('questionary:step1.options7.HIV'),
+    },
+    {
+      value: 'Lung cancer',
+      label: t('questionary:step1.options7.Lung cancer'),
+    },
+    {
+      value: 'Pneumonia',
+      label: t('questionary:step1.options7.Pneumonia'),
+    },
+    {
+      value: 'Pregnancy',
+      label: t('questionary:step1.options7.Pregnancy'),
+    },
+    {
+      value: 'Pulmonary fibrosis',
+      label: t('questionary:step1.options7.Pulmonary fibrosis'),
+    },
+    {
+      value: 'Sinusitis',
+      label: t('questionary:step1.options7.Sinusitis'),
+    },
+    {
+      value: 'Tuberculosis',
+      label: t('questionary:step1.options7.Tuberculosis'),
+    },
+    {
+      value: 'Valvular heart disease',
+      label: t('questionary:step1.options7.Valvular heart disease'),
+    },
+  ];
+
+  const smokingOptions = [
+    {
+      value: 'Once in a while',
+      label: t('questionary:step1.options8.Once in a while'),
+    },
+    {
+      value: 'Every 2 weeks',
+      label: t('questionary:step1.options8.Every 2 weeks'),
+    },
+    {
+      value: 'Every week',
+      label: t('questionary:step1.options8.Every week'),
+    },
+    {
+      value: 'Alternate days',
+      label: t('questionary:step1.options8.Alternate days'),
+    },
+    {
+      value: 'Everyday',
+      label: t('questionary:step1.options8.Everyday'),
+    },
+    {
+      value: 'No, never smoke',
+      label: t('questionary:step1.options8.No, never smoke'),
+    },
+  ];
+
+  const yearsSmokedOptions = [
+    {
+      value: 'Less than one year',
+      label: t('questionary:step1.options9.Less than one year'),
+    },
+    {
+      value: '1 to 3 years',
+      label: t('questionary:step1.options9.1 to 3 years'),
+    },
+    {
+      value: '3 to 6 years',
+      label: t('questionary:step1.options9.3 to 6 years'),
+    },
+    {
+      value: '6 to 10 years',
+      label: t('questionary:step1.options9.6 to 10 years'),
+    },
+    {
+      value: '> 10 years',
+      label: t('questionary:step1.options9.> 10 years'),
+    },
+    {
+      value: 'Not Applicable',
+      label: t('questionary:step1.options9.Not Applicable'),
+    },
+  ];
+
+  const numChestAttackOptions = [
+    {
+      value: '<2',
+      label: t('questionary:step1.options11.<2'),
+    },
+    {
+      value: '2 to 4',
+      label: t('questionary:step1.options11.2 to 4'),
+    },
+    {
+      value: '4 to 6',
+      label: t('questionary:step1.options11.4 to 6'),
+    },
+    {
+      value: '6 to 8',
+      label: t('questionary:step1.options11.6 to 8'),
+    },
+    {
+      value: '>8',
+      label: t('questionary:step1.options11.>8'),
+    },
+  ];
+
+  const numHospitalizedOptions = [
+    {
+      value: '<Rarely',
+      label: t('questionary:step1.options12.Rarely'),
+    },
+    {
+      value: 'Sometimes',
+      label: t('questionary:step1.options12.Sometimes'),
+    },
+    {
+      value: 'Half of the time',
+      label: t('questionary:step1.options12.Half of the time'),
+    },
+    {
+      value: 'Most often',
+      label: t('questionary:step1.options12.Most often'),
+    },
+    {
+      value: 'Every time',
+      label: t('questionary:step1.options12.Every time'),
+    },
+  ];
+
+  const complianceOptions = [
+    {
+      value: 'Non-compliant',
+      label: t('questionary:step1.options13.Non-compliant'),
+    },
+    {
+      value: 'Sometimes',
+      label: t('questionary:step1.options13.Sometimes'),
+    },
+    {
+      value: 'Compliant',
+      label: t('questionary:step1.options13.Compliant'),
+    },
+  ];
+
+  const triggerOptions = [
+    {
+      value: 'Acute infection',
+      label: t('questionary:step1.options14.Acute infection'),
+    },
+    {
+      value: 'Exposure to pollutants',
+      label: t('questionary:step1.options14.Exposure to pollutants'),
+    },
+    {
+      value: 'Respiratory disease',
+      label: t('questionary:step1.options14.Respiratory disease'),
+    },
+  ];
+
+  const recoverOptions = [
+    {
+      value: '<1 week',
+      label: t('questionary:step1.options16.<1 week'),
+    },
+    {
+      value: '1-2 weeks',
+      label: t('questionary:step1.options16.1-2 weeks'),
+    },
+    {
+      value: '<1 month',
+      label: t('questionary:step1.options16.<1 month'),
+    },
+    {
+      value: '1-2 months',
+      label: t('questionary:step1.options16.1-2 months'),
+    },
+    {
+      value: '>2 months',
+      label: t('questionary:step1.options16.>2 months'),
+    },
+  ];
+
+  const QOLOptions = [
+    {
+      value: 'Significantly worsened',
+      label: t('questionary:step1.options17.Significantly worsened'),
+    },
+    {
+      value: 'Worsened',
+      label: t('questionary:step1.options17.Worsened'),
+    },
+    {
+      value: 'No change',
+      label: t('questionary:step1.options17.No change'),
+    },
+    {
+      value: 'Slightly improved',
+      label: t('questionary:step1.options17.Slightly improved'),
+    },
+    {
+      value: 'Significantly improved',
+      label: t('questionary:step1.options17.Significantly improved'),
+    },
+  ];
   return (
     <MainContainer>
       <QuestionText extraSpace first>{t('questionary:step1.question1')}
@@ -167,6 +498,352 @@ const Step2 = ({
           <p>{message}</p>
         )}
       />
+
+      <QuestionText>{t('questionary:step1.question3')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="age"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionList
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected[0])}
+            items={ageOptions}
+          />
+        )}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="age"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
+      <QuestionText>{t('questionary:step1.question4')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="ethnicity"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionList
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected[0])}
+            items={ethnicityOptions}
+          />
+        )}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="ethnicity"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
+      <QuestionText>{t('questionary:step1.question5')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="gender"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionList
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected[0])}
+            items={genderOptions}
+          />
+        )}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="gender"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
+      <QuestionText>{t('questionary:step1.question6')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="sex"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionList
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected[0])}
+            items={biologicalSexOptions}
+          />
+        )}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="sex"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
+      <QuestionText>{t('questionary:step1.question7')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="condition"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionList
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected[0])}
+            items={conditionOptions}
+          />
+        )}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="condition"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
+      <QuestionText>{t('questionary:step1.question8')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="isSmoking"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionListMulti
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected)} // Pass the entire selected array
+            items={smokingOptions}
+          />
+        )}
+      />
+
+      <ErrorMessage
+        errors={errors}
+        name="isSmoking"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
+      <QuestionText>{t('questionary:step1.question9')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="yearsSmoked"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionList
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected[0])}
+            items={yearsSmokedOptions}
+          />
+        )}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="yearsSmoked"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
+      <QuestionText>{t('questionary:step1.question10')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="COPD symptoms"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionList
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected[0])}
+            items={biologicalSexOptions}
+          />
+        )}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="COPD symptoms"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
+      <QuestionText>{t('questionary:step1.question11')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="numChestAttacks"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionList
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected[0])}
+            items={numChestAttackOptions}
+          />
+        )}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="numChestAttacks"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
+      <QuestionText>{t('questionary:step1.question12')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="numHospitalized"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionList
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected[0])}
+            items={numHospitalizedOptions}
+          />
+        )}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="numHospitalized"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
+      <QuestionText>{t('questionary:step1.question13')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="compliance"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionList
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected[0])}
+            items={complianceOptions}
+          />
+        )}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="compliance"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
+      <QuestionText>{t('questionary:step1.question14')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="trigger"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionList
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected[0])}
+            items={triggerOptions}
+          />
+        )}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="trigger"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
+      <QuestionText>{t('questionary:step1.question15')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="rateQOL"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionList
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected[0])}
+            items={recoverOptions}
+          />
+        )}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="rateQOL"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
+      <QuestionText>{t('questionary:step1.question16')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="recover"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionList
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected[0])}
+            items={recoverOptions}
+          />
+        )}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="recover"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
+      <QuestionText>{t('questionary:step1.question17')}
+      </QuestionText>
+      <Controller
+        control={control}
+        name="QOLimprovement"
+        defaultValue={undefined}
+        render={({ onChange, value }) => (
+          <OptionList
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={v => onChange(v.selected[0])}
+            items={QOLOptions}
+          />
+        )}
+      />
+      <ErrorMessage
+        errors={errors}
+        name="QOLimprovement"
+        render={({ message }) => (
+          <p>{message}</p>
+        )}
+      />
+
       {/* Bottom Buttons */}
       {activeStep && (
         <Portal>

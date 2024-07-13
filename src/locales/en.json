@@ -360,7 +360,7 @@
     "step1": {
       "headerTitle": "Questionnaire",
       "question1": "Do you feel ill today?",
-      "options": {
+      "options1": {
         "yes": "Yes",
         "no": "No",
         "unsure": "Unsure"
@@ -368,7 +368,135 @@
       "question2": "Where is your primary location?",
       "caption2": "This can be your home or zip code. Your information will be fully anonymized.",
       "zipCodeLabel": "Zip Code",
-      "zipCodePlaceholder": "Enter zip code"
+      "zipCodePlaceholder": "Enter zip code",
+
+      "question3": "What is your age?",
+      "options3": {
+        "<18 years": "<18 years",
+        "18-45": "18-45",
+        "45-65": "45-65",
+        ">65": ">65",
+        "Decline to answer": "Decline to answer"
+      },
+
+      "question4": "What races and/or ethnicities do you identify with?",
+      "options4": {
+        "American Indian or Alaska Native": "American Indian or Alaska Native", 
+        "Asian": "Asian", 
+        "Black or African American": "Black or African American", 
+        "Hispanic, Latino, or Spanish Origin": "Hispanic, Latino, or Spanish Origin", 
+        "White": "White", 
+        "Other": "Other", 
+        "Decline to answer": "Decline to answer"
+      },
+
+      "question5": "What is your gender identity?",
+      "options5": {
+        "Female": "Female", 
+        "Male": "Male", 
+        "Transgender": "Transgender", 
+        "Other": "Other"
+      },
+
+      "question6": "What is your biological sex?",
+      "options6": {
+        "Female": "Female", 
+        "Male ": "Male",
+        "Decline to answer": "Decline to answer"
+      },
+
+      "question7": "Have you had any of these conditions now or in the past?",
+      "options7": {
+        "Allergies": "Allergies",
+        "Asthma": "Asthma",
+        "Bronchitis": "Bronchitis",
+        "Congestive heart failure": "Congestive heart failure",
+        "Cough from other medical conditions": "Cough from other medical conditions",
+        "Cystic fibrosis": "Cystic fibrosis",
+        "Emphysema": "Emphysema",
+        "Extreme obesity": "Extreme obesity",
+        "HIV": "HIV",
+        "Lung cancer": "Lung cancer",
+        "Pneumonia": "Pneumonia",
+        "Pregnancy": "Pregnancy",
+        "Pulmonary fibrosis": "Pulmonary fibrosis",
+        "Sinusitis": "Sinusitis",
+        "Tuberculosis": "Tuberculosis",
+        "Valvular heart disease": "Valvular heart disease"
+      }, 
+
+      "question8": "How often do you smoke? (Buttons multiple choice)",
+      "options8": {
+        "Once in a while": "Once in a while",
+        "Every 2 weeks": "Every 2 weeks",
+        "Every week": "Every week",
+        "Alternate days": "Alternate days",
+        "Every day": "Every day",
+        "No, never smoke": "No, never smoke"
+      },
+
+      "question9": "For how many years have you smoked? (Buttons multiple choice)",
+      "options9": {
+        "Less than one year": "Less than one year",
+        "1 to 3 years": "1 to 3 years",
+        "3 to 6 years": "3 to 6 years",
+        "6 to 10 years": "6 to 10 years",
+        "> 10 years": "> 10 years",
+        "Not Applicable": "Not Applicable"
+      },
+      "question10": "How will you rate the severity of your COPD symptoms",
+      
+      "question11": "How many attacks of chest trouble did you have during the last year?",
+      "options11": {
+        "<2": "<2",
+        "2 to 4": "2 to 4",
+        "4 to 6": "4 to 6",
+        "6 to 8": "6 to 8",
+        ">8": ">8"
+      },
+
+      "question12": "How many times were you hospitalized due to COPD during the last year?",
+      "options12": {
+        "Rarely": "Rarely",
+        "Sometimes": "Sometimes",
+        "Half of the time": "Half of the time",
+        "Most often": "Most often",
+        "Every time": "Every time"
+      },
+
+      "question13": "Were you Compliant with Medications received during Exacerbations?",
+      "options13": {
+        "Non-compliant": "Non-compliant",
+        "Sometimes": "Sometimes",
+        "Compliant": "Compliant"
+      },
+
+      "question14": "What was the trigger of your COPD worsening?",
+      "options14": {
+        "Acute infection": "Acute infection",
+        "Exposure to pollutants": "Exposure to pollutants",
+        "Respiratory disease": "Respiratory disease"
+      },
+
+      "question15": "How will you rate your Quality of Life associated with COPD?",
+
+      "question16": "How long did you take to recover from the episode of COPD Exacerbation?",
+      "options16": {
+        "<1 week": "<1 week",
+        "1-2 weeks": "1-2 weeks",
+        "<1 month": "<1 month",
+        "1-2 months": "1-2 months",
+        ">2 months": ">2 months"
+      },
+      
+      "question17": "What was the trigger of your COPD worsening?",
+      "options17": {
+        "Significantly worsened": "Significantly worsened",
+        "Worsened": "Worsened",
+        "No change": "No change",
+        "Slightly improved": "Slightly improved",
+        "Significantly improved": "Significantly improved"
+      }
     },
     "headerQuestions": "Questionnaire",
     "title": "¡Vamos a responder unas breves preguntas!",
