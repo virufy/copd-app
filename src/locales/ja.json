@@ -373,7 +373,7 @@
     "seeExample": "(例を見る).",
     "textBreath": " Haga clic en el botón de grabación y <strong>respira profunda y fuertemente </strong> con la boca en la parte inferior del teléfono <strong>3 veces</strong>, dejando un espacio entre cada respiración. Cuando haya terminado, toque el botón de detener.",
     "textSpeech": "Haga clic en el botón de grabación (micrófono), a continuación inhale profundamente y luego <strong> diga un 'aaaaah' sostenido durante al menos 5 segundos.</strong> Cuando haya terminado, haga clic en el botón de detener",
-    "textNext": "続行」をクリックして次に進む",
+    "textNext": "続行をクリックして次に進む",
     "textCount": "Haga clic en el botón de grabación (el micrófono) y <strong>cuente claramente del uno (1) al diez (10)</strong>. Cuando haya terminado, haga clic en el botón de pausa.",
     "upload": "Suba su propio archivo",
     "record": "記録",
@@ -404,21 +404,21 @@
       "header": "Grabe su voz",
       "intro1": "¡El sonido de su voz también puede ayudarnos a aprender cómo suena la COVID! Por favor, haga clic para grabar y cuente claramente del uno (1)  al diez (10)."
     },
-    "title": "Cフルロード",
+    "title": "フルロード",
     "subtitle": "ご希望であれば、録音をお聴きいただけます",
     "next": "続ける",
     "retake": "再レコーディング"
   },
   "questionary": {
     "step1": {
-      "question1": "今日は体調が悪いですか？",
+      "question1": "今日の体調は悪いですか？",
       "options": {
         "yes": "はい",
         "no": "いいえ",
         "unsure": "不明"
       },
       "question2": "主要拠点はどこですか？",
-      "caption2": "ご自宅や郵便番号でも結構です。あなたの情報は完全に匿名化されます。",
+      "caption2": "ご自宅の郵便番号で結構です。あなたの情報は完全に匿名化されます。",
       "zipCodeLabel": "郵便番号",
       "zipCodePlaceholder": "郵便番号を入力"
     },
@@ -435,7 +435,7 @@
   "thankyou": {
     "title": "ご参加ありがとうございました！",
     "paragraph1": "あなたの咳の寄付が、Virufyを世界を変える一歩に近づけます",
-    "paragraph2": "この送信IDは、将来Virufyに匿名化されたデータの削除を要求する際に必要になるため、必ず保護してください。<1 /><1 />その後、咳、発熱、息切れなどの症状が現れた場合は、最新の咳の音を再提出してください。",
+    "paragraph2": "この送信IDは、今後Virufyに匿名化されたデータの削除を要求する際に必要になるため、忘れないようにしてください。<1 /><1 />その後、咳、発熱、息切れなどの症状が現れた場合は、最新の咳の音を再提出してください。",
     "submissionId": "あなた固有の投稿ID:<br/><2>{{submissionId}}</2>"
   },
   "footerReportProblems": {
