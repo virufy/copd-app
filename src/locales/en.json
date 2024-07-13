@@ -401,7 +401,7 @@
       "question6": "What is your biological sex?",
       "options6": {
         "Female": "Female", 
-        "Male ": "Male",
+        "Male": "Male",
         "Decline to answer": "Decline to answer"
       },
 

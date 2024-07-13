@@ -102,15 +102,15 @@ const Step2 = ({
   const illOptions = [
     {
       value: 'yes',
-      label: t('questionary:step1.options.yes'),
+      label: t('questionary:step1.options1.yes'),
     },
     {
       value: 'no',
-      label: t('questionary:step1.options.no'),
+      label: t('questionary:step1.options1.no'),
     },
     {
       value: 'unsure',
-      label: t('questionary:step1.options.unsure'),
+      label: t('questionary:step1.options1.unsure'),
     },
   ];
 
@@ -287,8 +287,8 @@ const Step2 = ({
       label: t('questionary:step1.options8.Alternate days'),
     },
     {
-      value: 'Everyday',
-      label: t('questionary:step1.options8.Everyday'),
+      value: 'Every day',
+      label: t('questionary:step1.options8.Every day'),
     },
     {
       value: 'No, never smoke',
@@ -529,10 +529,9 @@ const Step2 = ({
         name="ethnicity"
         defaultValue={undefined}
         render={({ onChange, value }) => (
-          <OptionList
-            singleSelection
+          <OptionListMulti
             value={{ selected: value ? [value] : [] }}
-            onChange={v => onChange(v.selected[0])}
+            onChange={v => onChange(v.selected)} // Pass the entire selected array
             items={ethnicityOptions}
           />
         )}
@@ -552,10 +551,9 @@ const Step2 = ({
         name="gender"
         defaultValue={undefined}
         render={({ onChange, value }) => (
-          <OptionList
-            singleSelection
+          <OptionListMulti
             value={{ selected: value ? [value] : [] }}
-            onChange={v => onChange(v.selected[0])}
+            onChange={v => onChange(v.selected)} // Pass the entire selected array
             items={genderOptions}
           />
         )}
@@ -575,10 +573,9 @@ const Step2 = ({
         name="sex"
         defaultValue={undefined}
         render={({ onChange, value }) => (
-          <OptionList
-            singleSelection
+          <OptionListMulti
             value={{ selected: value ? [value] : [] }}
-            onChange={v => onChange(v.selected[0])}
+            onChange={v => onChange(v.selected)} // Pass the entire selected array
             items={biologicalSexOptions}
           />
         )}
@@ -644,10 +641,9 @@ const Step2 = ({
         name="yearsSmoked"
         defaultValue={undefined}
         render={({ onChange, value }) => (
-          <OptionList
-            singleSelection
+          <OptionListMulti
             value={{ selected: value ? [value] : [] }}
-            onChange={v => onChange(v.selected[0])}
+            onChange={v => onChange(v.selected)} // Pass the entire selected array
             items={yearsSmokedOptions}
           />
         )}
