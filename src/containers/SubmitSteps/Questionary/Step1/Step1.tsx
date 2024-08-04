@@ -38,6 +38,21 @@ import {
 const schema = Yup.object({
   illStatus: Yup.string().oneOf(['yes', 'no', 'unsure']).required(),
   zipCode: Yup.string().required(),
+  age: Yup.string().oneOf(['<18 years', '18-45', '45-65', '>65"', 'Decline to answer']).required(),
+  ethnicity: Yup.array().of(Yup.string().oneOf(['American Indian or Alaska Native', 'Asian', 'Black or African American', 'Hispanic, Latino, or Spanish Origin', 'White', 'Other', 'Decline to answer'])).min(1).required(),
+  gender: Yup.array().of(Yup.string().oneOf(['Female', 'Male', 'Transgender', 'Other'])).min(1).required(),
+  sex: Yup.array().of(Yup.string().oneOf(['Female', 'Male', 'Decline to answer'])).min(1).required(),
+  condition: Yup.string().oneOf(['Allergies', 'Asthma', 'Bronchitis', 'Congestive heart failure', 'Cough from other medical conditions', 'Cystic fibrosis', 'Emphysema', 'Extreme obesity', 'HIV', 'Lung cancer', 'Pneumonia', 'Pregnancy', 'Pulmonary fibrosis', 'Sinusitis', 'Tuberculosis', 'Valvular heart disease']).required(),
+  isSmoking: Yup.array().of(Yup.string().oneOf(['Once in a while', 'Every 2 weeks', 'Every week', 'Alternate days', 'Every day', 'No, never smoke'])).min(1).required(),
+  yearsSmoked: Yup.array().of(Yup.string().oneOf(['Less than one year', '1 to 3 years', '3 to 6 years', '6 to 10 years', '> 10 years', 'Not Applicable'])).min(1).required(),
+  COPDsymptoms: Yup.string().oneOf([]).required(),
+  numChestAttacks: Yup.string().oneOf(['<2', '2 to 4', '4 to 6', '6 to 8', '>8']).required(),
+  numHospitalized: Yup.string().oneOf(['Rarely', 'Sometimes', 'Half of the time', 'Most often', 'Every time']).required(),
+  compliance: Yup.string().oneOf(['Non-compliant', 'Sometimes', 'Compliant']).required(),
+  trigger: Yup.string().oneOf(['Acute infection', 'Exposure to pollutants', 'Respiratory disease']).required(),
+  rateQOL: Yup.string().oneOf([]).required(),
+  recover: Yup.string().oneOf(['<1 week', '1-2 weeks', '<1 month', '1-2 months', '>2 months']).required(),
+  QOLimprovement: Yup.string().oneOf(['Significantly worsened', 'Worsened', 'No change', 'Slightly improved', 'Significantly improved']).required(),
 }).defined();
 
 type Step1Type = Yup.InferType<typeof schema>;
@@ -65,6 +80,8 @@ const Step2 = ({
     defaultValues: state?.[storeKey],
     resolver: yupResolver(schema),
   });
+  console.log(formState);
+
   const { errors, isValid } = formState;
 
   // States
@@ -660,7 +677,7 @@ const Step2 = ({
       </QuestionText>
       <Controller
         control={control}
-        name="COPD symptoms"
+        name="COPDsymptoms"
         defaultValue={undefined}
         render={({ onChange, value }) => (
           <OptionList
@@ -673,7 +690,7 @@ const Step2 = ({
       />
       <ErrorMessage
         errors={errors}
-        name="COPD symptoms"
+        name="COPDsymptoms"
         render={({ message }) => (
           <p>{message}</p>
         )}

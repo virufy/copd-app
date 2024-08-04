@@ -425,7 +425,7 @@
         "Valvular heart disease": "Valvular heart disease"
       }, 
 
-      "question8": "How often do you smoke? (Buttons multiple choice)",
+      "question8": "How often do you smoke?",
       "options8": {
         "Once in a while": "Once in a while",
         "Every 2 weeks": "Every 2 weeks",
@@ -435,7 +435,7 @@
         "No, never smoke": "No, never smoke"
       },
 
-      "question9": "For how many years have you smoked? (Buttons multiple choice)",
+      "question9": "For how many years have you smoked?",
       "options9": {
         "Less than one year": "Less than one year",
         "1 to 3 years": "1 to 3 years",
@@ -489,7 +489,7 @@
         ">2 months": ">2 months"
       },
       
-      "question17": "What was the trigger of your COPD worsening?",
+      "question17": "How much did your Quality of life improve after hospitalization?",
       "options17": {
         "Significantly worsened": "Significantly worsened",
         "Worsened": "Worsened",
