@@ -287,69 +287,69 @@
       "title": "Instructions",
       "intro1": "Find a <strong>quiet environment</strong> that is <strong>20 feet away</strong> from those around you.",
       "intro2Cough": "<strong>Wear a surgical or cloth mask</strong> and hold your device two hands-length away from your face.",
-      "intro2Breath": "Mantenga el dispositivo a una distancia de <strong> 30-60 centímetros </strong> de su boca y <strong>no obstruya</strong> ni cubra el dispositivo con plástico. No respire violentamente o con demasiada fuerza.",
-      "intro2Speech": "Mantenga el dispositivo a una distancia de <strong> 30-60 centímetros </strong> de su boca y <strong>no obstruya</strong> ni cubra el dispositivo con plástico. No hable violentamente o con demasiada fuerza.",
-      "instructions": "Para ver un breve tutorial sobre cómo grabar su tos y configurar el micrófono, de clic en el siguiente botón."
+      "intro2Breath": "Hold the device <strong>1-2 feet</strong> away from your mouth and <strong>do not obstruct</strong> or cover the device with plastic. Do not breathe violently or with excessive force.",
+      "intro2Speech": "Hold the device <strong>1-2 feet</strong> away from your mouth and <strong>do not obstruct</strong> or cover the device with plastic. Do not speak violently or with excessive force.",
+      "instructions": "To watch a short tutorial on how to record your cough and set up your microphone, click the button below."
     },
     "recordBreath": {
-      "header": "Graba tu respiración"
+      "header": "Record your breath"
     },
     "recordSpeech": {
-      "header": "Grabe su voz",
-      "intro1": "¡El sonido de su voz también puede ayudarnos a aprender cómo suena la COVID! Por favor, haga clic para grabar y cuente claramente del uno al diez."
+      "header": "Record your speech",
+      "intro1": "The sound of your voice can also help us learn what COVID sounds like! Please click to record and count clearly from one to ten."
     },
-    "next": "Siguiente",
+    "next": "Next", 
     "retryButton": "Try again",
-    "releaseButtonStart": "Haga clic para empezar a grabar",
-    "releaseButtonStop": "Haga clic para detener la grabación",
+    "releaseButtonStart": "Click to start recording",
+    "releaseButtonStop": "Click to stop recording",
     "shortRecording": "Please make a recording of at least {{seconds}} seconds"
   },
   "recordingsRecord": {
     "recordCough": {
       "header": "Record your cough"
-    },
+    },    
     "recordBreath": {
-      "header": "Graba tu respiración"
+      "header": "Record your breath"
     },
     "recordSpeech": {
-      "header": "Grabe su voz"
+      "header": "Record your speech"
     },
     "next": "Continue",
-    "delete": "Borrar",
+    "delete": "Delete",
     "textCough": "Click the record button below and <strong>cough intentionally three times with a deep breath between each cough.</strong> When you are done, tap the stop button",
     "seeExample": "(see <1>example</1>).",
-    "textBreath": " Haga clic en el botón de grabación y <strong>respira profunda y fuertemente </strong> con la boca en la parte inferior del teléfono <strong>3 veces</strong>, dejando un espacio entre cada respiración. Cuando haya terminado, toque el botón de detener.",
-    "textSpeech": "Haga clic en el botón de grabación (micrófono), a continuación inhale profundamente y luego <strong> diga un 'aaaaah' sostenido durante al menos 5 segundos.</strong> Cuando haya terminado, haga clic en el botón de detener",
+    "textBreath": "Click the record button and <strong>take a deep, strong breath</strong> with your mouth at the bottom of the phone <strong>3 times</strong>, leaving a space between each breath. When you are finished, tap the stop button.",
+    "textSpeech": "Click the record button (the microphone), then take a deep breath and then <strong>say a sustained 'aaaaah' for at least 5 seconds.</strong> When you are finished, click the stop button.",
     "textNext": "Click continue to proceed.",
-    "textCount": "Haga clic en el botón de grabación (el micrófono) y <strong>cuente claramente del uno (1) al diez (10)</strong>. Cuando haya terminado, haga clic en el botón de pausa.",
-    "upload": "Suba su propio archivo",
+    "textCount": "Click the record button (the microphone) and <strong>count clearly from one (1) to ten (10)</strong>. When you are finished, click the pause button.",
+    "upload": "Upload your own file",
     "record": "Record",
     "recordStop": "Stop"
   },
   "recordingsRecordManual": {
-    "header": "Subir un archivo",
-    "addFile": "Añadir un archivo",
-    "constraint": "Añada hasta 5 MB",
-    "next": "Hecho",
-    "micError": "¿No puede acceder al micrófono? Suba un archivo de audio (.wav/.wave/.mp3/.ogg)",
-    "micErrorDescription": "Por favor, suba un archivo de audio aquí.",
-    "fileDurationTooShort": "Por favor, suba un archivo de al menos 3 segundos",
-    "fileSizeTooBig": "Por favor, suba un archivo de menos de 5 MB",
-    "fileRequired": "Por favor, suba un archivo",
-    "uploadFile": "Subir Archivo"
+    "header": "Upload a file",
+    "addFile": "Add a file",
+    "constraint": "Add up to 5 MB",
+    "next": "Done",
+    "micError": "Can't access microphone? Upload an audio file (.wav/.wave/.mp3/.ogg)",
+    "micErrorDescription": "Please upload an audio file here.",
+    "fileDurationTooShort": "Please upload a file that is at least 3 seconds long",
+    "fileSizeTooBig": "Please upload a file smaller than 5 MB",
+    "fileRequired": "Please upload a file",
+    "uploadFile": "Upload File"
   },
   "recordingsListen": {
     "recordCough": {
       "header": "Record your cough",
-      "intro1": "Busque un entorno tranquilo que esté a 6 metros de los demás",
-      "intro2": "Use un tapabocas quirurgico o de tela y sostenga el dispositivo a 30-60 cm de distancia de su cara"
+      "intro1": "Find a quiet environment that is 20 feet away from others",
+      "intro2": "Wear a surgical or cloth mask and hold your device two hands-length away from your face"
     },
     "recordBreath": {
-      "header": "Graba tu respiración"
+      "header": "Record your breath"
     },
     "recordSpeech": {
-      "header": "Grabe su voz",
-      "intro1": "¡El sonido de su voz también puede ayudarnos a aprender cómo suena la COVID! Por favor, haga clic para grabar y cuente claramente del uno (1)  al diez (10)."
+      "header": "Record your speech",
+      "intro1": "The sound of your voice can also help us learn what COVID sounds like! Please click to record and count clearly from one (1) to ten (10)."
     },
     "title": "Check recording",
     "subtitle": "If you wish, you can listen to your recording.",
@@ -445,7 +445,14 @@
         "Not Applicable": "Not Applicable"
       },
       "question10": "How will you rate the severity of your COPD symptoms",
-      
+      "options10": {
+        "Shortness of breath": "Shortness of breath",
+        "Wheezing ": "Wheezing ",
+        "Chest tightness ": "Chest tightness ",
+        "Fatigue": "Fatigue",
+        "Chronic cough that may produce mucus/sputum": "Chronic cough that may produce mucus/sputum"
+      },
+
       "question11": "How many attacks of chest trouble did you have during the last year?",
       "options11": {
         "<2": "<2",
@@ -499,19 +506,19 @@
       }
     },
     "headerQuestions": "Questionnaire",
-    "title": "¡Vamos a responder unas breves preguntas!",
-    "note": "Sus respuestas nos ayudarán a crear un algoritmo más preciso y coherente.",
-    "allThatApply": "(seleccione todas las que correspondan)",
-    "stepOf": "de",
-    "nextButton": "Siguiente",
-    "submitting": "Enviando...",
-    "submit": "Enviar",
-    "progressBar": "Paso {{currentStep}}/{{totalSteps}}"
+    "title": "Let's answer a few brief questions!",
+    "note": "Your answers will help us create a more accurate and consistent algorithm.",
+    "allThatApply": "(select all that apply)",
+    "stepOf": "of",
+    "nextButton": "Next",
+    "submitting": "Submitting...",
+    "submit": "Submit",
+    "progressBar": "Step {{currentStep}}/{{totalSteps}}"
   },
   "beforeSubmit": {
-    "submitButton": "Enviar formulario",
-    "submitError": "Se produjo un error. Por favor, inténtelo de nuevo."
-  },
+    "submitButton": "Submit form",
+    "submitError": "An error occurred. Please try again."
+},
   "thankyou": {
     "title": "Thank you for submitting!",
     "paragraph1": "Your cough donation brings Virufy one step closer to changing the world.",
@@ -519,7 +526,7 @@
     "submissionId": "Your unique submission ID:<br/><2>{{submissionId}}</2>"
   },
   "footerReportProblems": {
-    "message": "¿Algo mal? Reportar un problema"
+    "message": "Something wrong? Report a problem"
   },
   "stayInTouch": {
     "title": "Stay in touch!",
