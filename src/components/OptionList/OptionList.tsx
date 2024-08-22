@@ -48,20 +48,22 @@ const OptionList = ({
     const index = selected.indexOf(selectedItem.value);
 
     if (index >= 0) {
+      //present in the existing arr, remove it, deselect
       newSelected = [...selected.slice(0, index), ...selected.slice(index + 1)];
       newOtherValue = other;
     } else if (singleSelection) {
+      //not present in the exsting arr, and if singleSelection, replace
       newSelected = [selectedItem.value];
       newOtherValue = undefined;
     } else if (excludableValues?.includes(selectedItem.value)
     || (excludableValues && selected.some(item => excludableValues.includes(item)))) {
       newSelected = [selectedItem.value];
       newOtherValue = undefined;
-    } else {
+    } else {//not present in the exsting arr and allows multiple, add
       newSelected = [...selected, selectedItem.value];
       newOtherValue = other;
     }
-
+    
     if (onChange) {
       onChange({
         selected: newSelected,
@@ -110,7 +112,7 @@ const OptionList = ({
             <OptionListItemLabel>
               {item.label}
             </OptionListItemLabel>
-            <OptionListCheck isSelected={isSelected} checkbox={isCheckbox} />
+            <OptionListCheck isSelected={isSelected} checkbox={isCheckbox} singleSelection={singleSelection} />
           </OptionListItem>
         );
       })}

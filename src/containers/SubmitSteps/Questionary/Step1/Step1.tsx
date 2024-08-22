@@ -23,7 +23,6 @@ import { scrollToTop } from 'helper/scrollHelper';
 
 // Components
 import OptionList from 'components/OptionList';
-import OptionListMulti from 'components/OptionListMulti';
 import WizardButtons from 'components/WizardButtons';
 
 // Styles
@@ -39,7 +38,8 @@ const schema = Yup.object({
   illStatus: Yup.string().oneOf(['yes', 'no', 'unsure']).required('Required Field'),
   zipCode: Yup.string().required('Required Field'),
   age: Yup.string().oneOf(['<18 years', '18-45', '45-65', '>65"', 'Decline to answer']).required('Required Field'),
-  ethnicity: Yup.array().of(Yup.string().oneOf(['American Indian or Alaska Native', 'Asian', 'Black or African American', 'Hispanic, Latino, or Spanish Origin', 'White', 'Other', 'Decline to answer'])).min(1).required(),
+  ethnicity: Yup.string().oneOf(['American Indian or Alaska Native', 'Asian', 'Black or African American', 'Hispanic, Latino, or Spanish Origin', 'White', 'Other', 'Decline to answer']).required('Required Field'),
+  // ethnicity: Yup.array().of(Yup.string().oneOf(['American Indian or Alaska Native', 'Asian', 'Black or African American', 'Hispanic, Latino, or Spanish Origin', 'White', 'Other', 'Decline to answer'])).min(1).required(),
   gender: Yup.array().of(Yup.string().oneOf(['Female', 'Male', 'Transgender', 'Other'])).min(1).required(),
   sex: Yup.array().of(Yup.string().oneOf(['Female', 'Male', 'Decline to answer'])).min(1).required(),
   condition: Yup.string().oneOf(['Allergies', 'Asthma', 'Bronchitis', 'Congestive heart failure', 'Cough from other medical conditions', 'Cystic fibrosis', 'Emphysema', 'Extreme obesity', 'HIV', 'Lung cancer', 'Pneumonia', 'Pregnancy', 'Pulmonary fibrosis', 'Sinusitis', 'Tuberculosis', 'Valvular heart disease']).required('Required Field'),
@@ -561,9 +561,9 @@ const Step2 = ({
         name="ethnicity"
         defaultValue={undefined}
         render={({ onChange, value }) => (
-          <OptionListMulti
-            value={{ selected: value ? [value] : [] }}
-            onChange={v => onChange(v.selected)} // Pass the entire selected array
+          <OptionList
+            value={{ selected: value ? value : [] }}
+            onChange={v => onChange(v.selected)}
             items={ethnicityOptions}
           />
         )}
@@ -588,8 +588,8 @@ const Step2 = ({
         name="gender"
         defaultValue={undefined}
         render={({ onChange, value }) => (
-          <OptionListMulti
-            value={{ selected: value ? [value] : [] }}
+          <OptionList
+            value={{ selected: value ? value : [] }}
             onChange={v => onChange(v.selected)} // Pass the entire selected array
             items={genderOptions}
           />
@@ -615,8 +615,8 @@ const Step2 = ({
         name="sex"
         defaultValue={undefined}
         render={({ onChange, value }) => (
-          <OptionListMulti
-            value={{ selected: value ? [value] : [] }}
+          <OptionList
+            value={{ selected: value ? value : [] }}
             onChange={v => onChange(v.selected)} // Pass the entire selected array
             items={biologicalSexOptions}
           />
@@ -670,9 +670,10 @@ const Step2 = ({
         name="isSmoking"
         defaultValue={undefined}
         render={({ onChange, value }) => (
-          <OptionListMulti
+          <OptionList
+            singleSelection
             value={{ selected: value ? [value] : [] }}
-            onChange={v => onChange(v.selected)} // Pass the entire selected array
+            onChange={v => onChange(v.selected[0])} // Pass the entire selected array
             items={smokingOptions}
           />
         )}
@@ -698,9 +699,10 @@ const Step2 = ({
         name="yearsSmoked"
         defaultValue={undefined}
         render={({ onChange, value }) => (
-          <OptionListMulti
+          <OptionList
+            singleSelection
             value={{ selected: value ? [value] : [] }}
-            onChange={v => onChange(v.selected)} // Pass the entire selected array
+            onChange={v => onChange(v.selected[0])} // Pass the entire selected array
             items={yearsSmokedOptions}
           />
         )}
