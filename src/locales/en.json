@@ -357,30 +357,14 @@
     "retake": "Re-recording"
   },
   "questionary": {
-    "step1": {
-      "headerTitle": "Questionnaire",
-      "question1": "Do you feel ill today?",
-      "options1": {
-        "yes": "Yes",
-        "no": "No",
-        "unsure": "Unsure"
-      },
-      "question2": "Where is your primary location?",
-      "caption2": "This can be your home or zip code. Your information will be fully anonymized.",
-      "zipCodeLabel": "Zip Code",
-      "zipCodePlaceholder": "Enter zip code",
-
-      "question3": "What is your age?",
-      "options3": {
-        "<18 years": "<18 years",
-        "18-45": "18-45",
-        "45-65": "45-65",
-        ">65": ">65",
-        "Decline to answer": "Decline to answer"
-      },
-
-      "question4": "What races and/or ethnicities do you identify with?",
-      "options4": {
+    "headerTitle": "Questionnaire",
+    "question1": {
+      "agePlaceholder": "Enter age",
+      "question": "Please enter your age"
+    },
+    "question2":{
+      "question": "What races and/or ethnicities do you identify with?",
+      "options": {
         "American Indian or Alaska Native": "American Indian or Alaska Native", 
         "Asian": "Asian", 
         "Black or African American": "Black or African American", 
@@ -388,121 +372,162 @@
         "White": "White", 
         "Other": "Other", 
         "Decline to answer": "Decline to answer"
-      },
-
-      "question5": "What is your gender identity?",
-      "options5": {
-        "Female": "Female", 
-        "Male": "Male", 
-        "Transgender": "Transgender", 
-        "Other": "Other"
-      },
-
-      "question6": "What is your biological sex?",
-      "options6": {
+      }
+    },
+    "question3":{
+      "question": "What was your sex at birth?",
+      "note": "What sex were you assigned at birth, on your original birth certificate? This information is important for the AI to help detect COPD as the sound of the voice varies across genders.",
+      "options": {
         "Female": "Female", 
         "Male": "Male",
         "Decline to answer": "Decline to answer"
+      }
+    },
+    "question4":{
+      "question": "Do you smoke or have you smoked in the past?",
+      "options": {
+        "Yes, current smoker": "Yes, current smoker",
+        "Yes, in the past": "Yes, in the past",
+        "No, never smoked": "No, never smoked"
+      }
+    },
+    "question5":{
+      "question": "For how long have you smoked?",
+      "options": {
+        "Less than one year": "Less than one year",
+        "1 to 5 years": "1 to 5 years",
+        "5 to 10 years": "5 to 10 years",
+        "> 10 years": "> 10 years"
+      }
+    },
+    "question6":{
+      "question": "Which type of smoking do you engage in?",
+      "note": "*Select all that apply",
+      "options": {
+        "Tobacco Cigarettes": "Tobacco Cigarettes",
+        "E-cigarettes": "E-cigarettes",
+        "Vape": "Vape",
+        "Marijuana Cigarettes": "Marijuana Cigarettes"
+      }
+    },
+    "question7":{
+      "question": "On average, how many times per day did you smoke or currently smoke cigarettes / e-cigarettes?",
+      "options": {
+        "One per day": "One per day",
+        "2-3 times a day": "2-3 times a day",
+        "3-5 times a day": "3-5 times a day",
+        "> 5 times a day": "> 5 times a day"
+      }
+    },
+    "question8":{
+      "question": "Have you had long exposure to any of the following?",
+      "note": "*Select all that apply",
+      "options": {
+        "Cadmium dust and fumes": "Cadmium dust and fumes",
+        "Exposure to biomass smoke from cooking fires": "Exposure to biomass smoke from cooking fires",
+        "Grain and flour dust": "Grain and flour dust",
+        "Silica dust": "Silica dust",
+        "Welding fumes": "Welding fumes",
+        "Isocyanates": "Isocyanates",
+        "Coal dust": "Coal dust",
+        "Other": "Other"
+      }
+    },
+    "question9":{
+      "question": "Have you previously been intubated?",
+      "options": {
+        "Yes": "Yes",
+        "No": "No"
+      }
+    },
+    "question10":{
+      "question": "Which of the below symptoms do you currently have?",
+      "note": "*Select all that apply",
+      "options": {
+        "A persistent chest cough with phlegm that does not go away": "A persistent chest cough with phlegm that does not go away",
+        "Frequent chest infections": "Frequent chest infections",
+        "Wheezing": "Wheezing",
+        "Weight loss": "Weight loss",
+        "Tiredness": "Tiredness",
+        "Swollen ankles from a build-up of fluid (oedema)": "Swollen ankles from a build-up of fluid (oedema)",
+        "Chest pain": "Chest pain",
+        "Coughing up blood": "Coughing up blood",
+        "Other": "Other"
+      }
+    },
+    "question11":{
+      "questionA": "In which COPD stage have you been diagnosed?",
+      "options": {
+        "FEV1 ≥80% predicted": "GOLD I - mild: FEV1 ≥80% predicted",
+        "50% ≤ FEV1 <80%": "GOLD II - moderate: 50% ≤ FEV1 <80%",
+        "30% ≤ FEV1 <50% predicted": "GOLD III - severe: 30% ≤ FEV1 <50% predicted",
+        "FEV1 <30% predicted": "GOLD IV - very severe: FEV1 <30% predicted"
       },
-
-      "question7": "Have you had any of these conditions now or in the past?",
-      "options7": {
+      "questionB": "Please enter FEV1 reading",
+      "placeholderB": "Enter FEV1 reading",
+      "questionC": "Please enter FVC reading",
+      "placeholderC": "Enter FVC reading",
+      "questionD": "Please enter ratio",
+      "placeholderD": "Enter ratio"
+    },
+    "question12":{
+      "question": "Have you had COPD exacerbations?",
+      "options": {
+        "Yes, frequently": "Yes, frequently",
+        "Yes, suffering from flare-ups currently": "Yes, suffering from flare-ups currently",
+        "Yes, rarely": "Yes, rarely",
+        "No, Never": "No, never"
+      }
+    },
+    "question13":{
+      "question": "Have you ever been hospitalized for COPD?",
+      "options": {
+        "Yes": "Yes",
+        "No": "No"
+      }
+    },
+    "question14":{
+      "question": "Which of the below conditions do you currently have?",
+      "note": "*Select all that apply",
+      "options": {
+        "None": "None",
         "Allergies": "Allergies",
         "Asthma": "Asthma",
         "Bronchitis": "Bronchitis",
         "Congestive heart failure": "Congestive heart failure",
-        "Cough from other medical conditions": "Cough from other medical conditions",
-        "Cystic fibrosis": "Cystic fibrosis",
-        "Emphysema": "Emphysema",
+        "COPD/emphysema": "COPD/emphysema",
         "Extreme obesity": "Extreme obesity",
-        "HIV": "HIV",
-        "Lung cancer": "Lung cancer",
+        "Heart disease": "Heart disease",
+        "HIV, AIDS, or impaired immune system": "HIV, AIDS, or impaired immune system",
+        "Other chronic lung disease": "Other chronic lung disease",
         "Pneumonia": "Pneumonia",
-        "Pregnancy": "Pregnancy",
         "Pulmonary fibrosis": "Pulmonary fibrosis",
         "Sinusitis": "Sinusitis",
         "Tuberculosis": "Tuberculosis",
-        "Valvular heart disease": "Valvular heart disease"
-      }, 
-
-      "question8": "How often do you smoke?",
-      "options8": {
-        "Once in a while": "Once in a while",
-        "Every 2 weeks": "Every 2 weeks",
-        "Every week": "Every week",
-        "Alternate days": "Alternate days",
-        "Every day": "Every day",
-        "No, never smoke": "No, never smoke"
-      },
-
-      "question9": "For how many years have you smoked?",
-      "options9": {
-        "Less than one year": "Less than one year",
-        "1 to 3 years": "1 to 3 years",
-        "3 to 6 years": "3 to 6 years",
-        "6 to 10 years": "6 to 10 years",
-        "> 10 years": "> 10 years",
-        "Not Applicable": "Not Applicable"
-      },
-      "question10": "How will you rate the severity of your COPD symptoms",
-      "options10": {
-        "Shortness of breath": "Shortness of breath",
-        "Wheezing ": "Wheezing ",
-        "Chest tightness ": "Chest tightness ",
-        "Fatigue": "Fatigue",
-        "Chronic cough that may produce mucus/sputum": "Chronic cough that may produce mucus/sputum"
-      },
-
-      "question11": "How many attacks of chest trouble did you have during the last year?",
-      "options11": {
-        "<2": "<2",
-        "2 to 4": "2 to 4",
-        "4 to 6": "4 to 6",
-        "6 to 8": "6 to 8",
-        ">8": ">8"
-      },
-
-      "question12": "How many times were you hospitalized due to COPD during the last year?",
-      "options12": {
-        "Rarely": "Rarely",
-        "Sometimes": "Sometimes",
-        "Half of the time": "Half of the time",
-        "Most often": "Most often",
-        "Every time": "Every time"
-      },
-
-      "question13": "Were you Compliant with Medications received during Exacerbations?",
-      "options13": {
-        "Non-compliant": "Non-compliant",
-        "Sometimes": "Sometimes",
-        "Compliant": "Compliant"
-      },
-
-      "question14": "What was the trigger of your COPD worsening?",
-      "options14": {
-        "Acute infection": "Acute infection",
-        "Exposure to pollutants": "Exposure to pollutants",
-        "Respiratory disease": "Respiratory disease"
-      },
-
-      "question15": "How will you rate your Quality of Life associated with COPD?",
-
-      "question16": "How long did you take to recover from the episode of COPD Exacerbation?",
-      "options16": {
-        "<1 week": "<1 week",
-        "1-2 weeks": "1-2 weeks",
-        "<1 month": "<1 month",
-        "1-2 months": "1-2 months",
-        ">2 months": ">2 months"
-      },
-      
-      "question17": "How much did your Quality of life improve after hospitalization?",
-      "options17": {
-        "Significantly worsened": "Significantly worsened",
-        "Worsened": "Worsened",
-        "No change": "No change",
-        "Slightly improved": "Slightly improved",
-        "Significantly improved": "Significantly improved"
+        "Hypertension": "Hypertension",
+        "Hypothyroidism": "Hypothyroidism",
+        "Family member has or had suffered from a respiratory disease": "Family member has or had suffered from a respiratory disease",
+        "Other": "Other"
+      }
+    },
+    "question15":{
+      "question": "Which of the following treatments have you undergone for your COPD?",
+      "note": "*Select all that apply",
+      "options": {
+        "None": "None",
+        "Oxygen therapy": "Oxygen therapy",
+        "Inhalers": "Inhalers",
+        "Pulmonary rehabilitation": "Pulmonary rehabilitation",
+        "Surgery or a lung transplant": "Surgery or a lung transplant",
+        "Oral treatments": "Oral treatments, e.g.  tablets",
+        "Other": "Other"
+      }
+    },
+    "question16":{
+      "question": "Have you been infected with tuberculosis?",
+      "options": {
+        "Yes": "Yes",
+        "No": "No"
       }
     },
     "headerQuestions": "Questionnaire",

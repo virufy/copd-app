@@ -82,7 +82,8 @@ export const QuestionNote = styled.span`
   font-size: 14px;
   line-height: 142.69%;
   font-weight: normal;
-  margin-bottom: 6px;
+  margin-bottom: 30px;
+  margin-top: -30px;
   color: ${props => props.theme.colors.black};
   display: block;
   text-align: left;
