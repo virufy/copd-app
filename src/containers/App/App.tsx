@@ -15,6 +15,7 @@ import { useInitializeGoogleAnalytics } from 'hooks/useInitializeGoogleAnalytics
 
 // Styles
 import { AppContainer } from './style';
+import FooterReportProblems from 'components/FooterReportProblems';
 
 const AsyncLoad = loadable(({ container }: { container: string }) => import(`containers/${container}`), {
   fallback: <div>Cargando ...</div>,
@@ -57,6 +58,7 @@ const App = () => {
           </Switch>
         </FullWidth>
         <FooterInstallAsApp />
+        <FooterReportProblems/>
         {/* {(!pathname.includes('/submit-steps/thank-you')) && <FooterReportProblems /> } */}
       </HeaderContextProvider>
     </AppContainer>
