@@ -37,7 +37,13 @@ import {
 } from "../style";
 
 const schema = Yup.object({
-  age: Yup.string().required("Required Field"),
+  age: Yup.string().required("Required Field").test(
+    'is-number', 
+    'Please enter a valid number', 
+    (value) => {
+      return !isNaN(Number(value)) && Number(value) < 150; 
+    }
+  ),
 }).defined();
 
 type Step1Type = Yup.InferType<typeof schema>;

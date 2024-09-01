@@ -173,7 +173,7 @@ const Step12 = ({
               value={value}
               onChange={onChange}
               type="text"
-              placeholder={t("questionary:question11.questionB")}
+              placeholder={t("questionary:question11.placeholderB")}
               autoComplete="Off"
             />
           </>
