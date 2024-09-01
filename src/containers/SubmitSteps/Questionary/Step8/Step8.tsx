@@ -30,10 +30,26 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
+  StepCounter,
+  StepTracker,
 } from "../style";
 
 const schema = Yup.object({
-  exposure: Yup.array().of(Yup.string().oneOf(['Cadmium dust and fumes', 'Exposure to biomass smoke from cooking fires', 'Grain and flour dust', 'Silica dust', 'Welding fumes', 'Isocyanates', 'Coal dust', 'Other'])).min(1).required()
+  exposure: Yup.array()
+    .of(
+      Yup.string().oneOf([
+        "Cadmium dust and fumes",
+        "Exposure to biomass smoke from cooking fires",
+        "Grain and flour dust",
+        "Silica dust",
+        "Welding fumes",
+        "Isocyanates",
+        "Coal dust",
+        "Other",
+      ])
+    )
+    .min(1)
+    .required(),
 }).defined();
 
 type Step8Type = Yup.InferType<typeof schema>;
@@ -93,48 +109,54 @@ const Step9 = ({
     setSubtitle("");
   }, [handleDoBack, setDoGoBack, setTitle, setType, metadata, t, setSubtitle]);
 
-  
   const options = [
     {
-      value: 'Cadmium dust and fumes',
-      label: t('questionary:question8.options.Cadmium dust and fumes'),
+      value: "Cadmium dust and fumes",
+      label: t("questionary:question8.options.Cadmium dust and fumes"),
     },
     {
-      value: 'Exposure to biomass smoke from cooking fires',
-      label: t('questionary:question8.options.Exposure to biomass smoke from cooking fires'),
+      value: "Exposure to biomass smoke from cooking fires",
+      label: t(
+        "questionary:question8.options.Exposure to biomass smoke from cooking fires"
+      ),
     },
     {
-      value: 'Grain and flour dust',
-      label: t('questionary:question8.options.Grain and flour dust'),
+      value: "Grain and flour dust",
+      label: t("questionary:question8.options.Grain and flour dust"),
     },
     {
-      value: 'Silica dust',
-      label: t('questionary:question8.options.Silica dust'),
+      value: "Silica dust",
+      label: t("questionary:question8.options.Silica dust"),
     },
     {
-      value: 'Welding fumes',
-      label: t('questionary:question8.options.Welding fumes'),
+      value: "Welding fumes",
+      label: t("questionary:question8.options.Welding fumes"),
     },
     {
-      value: 'Isocyanates',
-      label: t('questionary:question8.options.Isocyanates'),
+      value: "Isocyanates",
+      label: t("questionary:question8.options.Isocyanates"),
     },
     {
-      value: 'Coal dust',
-      label: t('questionary:question8.options.Coal dust'),
+      value: "Coal dust",
+      label: t("questionary:question8.options.Coal dust"),
     },
     {
-      value: 'Other',
-      label: t('questionary:question8.options.Other'),
+      value: "Other",
+      label: t("questionary:question8.options.Other"),
     },
   ];
 
   return (
     <MainContainer>
+      <StepCounter>
+        {metadata?.current} {t("questionary:stepOf")} {metadata?.total}
+      </StepCounter>
+      <StepTracker progress={metadata?.current} total={metadata?.total} />
+
       <QuestionText extraSpace first>
         {t("questionary:question8.question")}
       </QuestionText>
-      <QuestionNote>{t('questionary:question8.note')}</QuestionNote>
+      <QuestionNote>{t("questionary:question8.note")}</QuestionNote>
       <Controller
         control={control}
         name="exposure"

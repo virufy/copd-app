@@ -7,6 +7,7 @@ import { colors } from 'theme/index';
 export const MainContainer = styled.div`
   width: 100%;
   margin: 0px auto;
+  margin-bottom: 10px;
   padding-left: 20px;
   padding-right: 20px;
 
@@ -18,6 +19,7 @@ export const MainContainer = styled.div`
   }
 `;
 
+
 export const Title = styled.h1`
   font-family: "Open Sans";
   font-size: 1.5rem;
@@ -26,11 +28,23 @@ export const Title = styled.h1`
   color: ${props => props.theme.colors.darkBlack};
 
   @media screen and (${props => props.theme.breakpoints.tablet}){
-    margin-top: 40px;
+    margin-top: 20px;
   }
 `;
 
-export const StepTracker = styled.div<{ progress?: number }>`
+export const StepCounter = styled.label<{ progress?: number, total?: number }>`
+  font-family: "Source Sans Pro";
+  font-size: 14px;
+  text-align: center;
+  position: relative; 
+  font-weight: bold;
+  color: ${colors.purple};  
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+`;
+
+export const StepTracker = styled.div<{ progress?: number, total?: number  }>`
   width: 117px;
   height: 8px; 
   margin-right: auto;
@@ -47,6 +61,15 @@ export const StepTracker = styled.div<{ progress?: number }>`
     height: 8px;
     background-color: ${colors.purple};
     width: ${props => (props.progress ? `${props.progress * 16.8}px` : '0%')};
+    width: ${props => {
+      if (!props.progress || !props.total) {
+        return '0%';
+      }
+      else if(!props.total) {
+        return `${props.progress * 16.8}px`;
+      }
+      return `${(props.progress / props.total) * 100}%`;
+    }};
     border-radius: 10px;
   }
 `;
@@ -83,7 +106,6 @@ export const QuestionNote = styled.span`
   line-height: 142.69%;
   font-weight: normal;
   margin-bottom: 30px;
-  margin-top: -30px;
   color: ${props => props.theme.colors.black};
   display: block;
   text-align: left;

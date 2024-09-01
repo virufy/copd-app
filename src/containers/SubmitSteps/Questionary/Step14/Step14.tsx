@@ -30,10 +30,36 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
+  StepTracker,
+  StepCounter,
 } from "../style";
 
 const schema = Yup.object({
-    conditions: Yup.array().of(Yup.string().oneOf(['None', 'Allergies', 'Asthma', 'Bronchitis', 'Congestive heart failure', 'COPD/emphysema', 'Extreme obesity', 'Heart disease', 'HIV, AIDS, or impaired immune system', 'Other chronic lung disease', 'Pneumonia', 'Pulmonary fibrosis', 'Sinusitis', 'Tuberculosis', 'Hypertension', 'Hypothyroidism', 'Family member has or had suffered from a respiratory disease', 'Other'])).min(1).required()
+  conditions: Yup.array()
+    .of(
+      Yup.string().oneOf([
+        "None",
+        "Allergies",
+        "Asthma",
+        "Bronchitis",
+        "Congestive heart failure",
+        "COPD/emphysema",
+        "Extreme obesity",
+        "Heart disease",
+        "HIV, AIDS, or impaired immune system",
+        "Other chronic lung disease",
+        "Pneumonia",
+        "Pulmonary fibrosis",
+        "Sinusitis",
+        "Tuberculosis",
+        "Hypertension",
+        "Hypothyroidism",
+        "Family member has or had suffered from a respiratory disease",
+        "Other",
+      ])
+    )
+    .min(1)
+    .required(),
 }).defined();
 
 type Step14Type = Yup.InferType<typeof schema>;
@@ -93,88 +119,96 @@ const Step15 = ({
     setSubtitle("");
   }, [handleDoBack, setDoGoBack, setTitle, setType, metadata, t, setSubtitle]);
 
-  
   const options = [
     {
-      value: 'None',
-      label: t('questionary:question14.options.None'),
+      value: "None",
+      label: t("questionary:question14.options.None"),
     },
     {
-      value: 'Allergies',
-      label: t('questionary:question14.options.Allergies'),
+      value: "Allergies",
+      label: t("questionary:question14.options.Allergies"),
     },
     {
-      value: 'Asthma',
-      label: t('questionary:question14.options.Asthma'),
+      value: "Asthma",
+      label: t("questionary:question14.options.Asthma"),
     },
     {
-      value: 'Bronchitis',
-      label: t('questionary:question14.options.Bronchitis'),
+      value: "Bronchitis",
+      label: t("questionary:question14.options.Bronchitis"),
     },
     {
-      value: 'Congestive heart failure',
-      label: t('questionary:question14.options.Congestive heart failure'),
+      value: "Congestive heart failure",
+      label: t("questionary:question14.options.Congestive heart failure"),
     },
     {
-      value: 'COPD/emphysema',
-      label: t('questionary:question14.options.COPD/emphysema'),
+      value: "COPD/emphysema",
+      label: t("questionary:question14.options.COPD/emphysema"),
     },
     {
-      value: 'Extreme obesity',
-      label: t('questionary:question14.options.Extreme obesity'),
+      value: "Extreme obesity",
+      label: t("questionary:question14.options.Extreme obesity"),
     },
     {
-      value: 'Heart disease',
-      label: t('questionary:question14.options.Heart disease'),
+      value: "Heart disease",
+      label: t("questionary:question14.options.Heart disease"),
     },
     {
-      value: 'HIV, AIDS, or impaired immune system',
-      label: t('questionary:question14.options.HIV, AIDS, or impaired immune system'),
+      value: "HIV, AIDS, or impaired immune system",
+      label: t(
+        "questionary:question14.options.HIV, AIDS, or impaired immune system"
+      ),
     },
     {
-      value: 'Other chronic lung disease',
-      label: t('questionary:question14.options.Other chronic lung disease'),
+      value: "Other chronic lung disease",
+      label: t("questionary:question14.options.Other chronic lung disease"),
     },
     {
-      value: 'Pneumonia',
-      label: t('questionary:question14.options.Pneumonia'),
+      value: "Pneumonia",
+      label: t("questionary:question14.options.Pneumonia"),
     },
     {
-      value: 'Pulmonary fibrosis',
-      label: t('questionary:question14.options.Pulmonary fibrosis'),
+      value: "Pulmonary fibrosis",
+      label: t("questionary:question14.options.Pulmonary fibrosis"),
     },
     {
-      value: 'Sinusitis',
-      label: t('questionary:question14.options.Sinusitis'),
+      value: "Sinusitis",
+      label: t("questionary:question14.options.Sinusitis"),
     },
     {
-      value: 'Tuberculosis',
-      label: t('questionary:question14.options.Tuberculosis'),
+      value: "Tuberculosis",
+      label: t("questionary:question14.options.Tuberculosis"),
     },
     {
-      value: 'Hypertension',
-      label: t('questionary:question14.options.Hypertension'),
+      value: "Hypertension",
+      label: t("questionary:question14.options.Hypertension"),
     },
     {
-      value: 'Hypothyroidism',
-      label: t('questionary:question14.options.Hypothyroidism'),
+      value: "Hypothyroidism",
+      label: t("questionary:question14.options.Hypothyroidism"),
     },
     {
-      value: 'Family member has or had suffered from a respiratory disease',
-      label: t('questionary:question14.options.Family member has or had suffered from a respiratory disease'),
+      value: "Family member has or had suffered from a respiratory disease",
+      label: t(
+        "questionary:question14.options.Family member has or had suffered from a respiratory disease"
+      ),
     },
     {
-      value: 'Other',
-      label: t('questionary:question14.options.Other'),
+      value: "Other",
+      label: t("questionary:question14.options.Other"),
     },
   ];
 
   return (
     <MainContainer>
+      <StepCounter>
+        {metadata?.current} {t("questionary:stepOf")} {metadata?.total}
+      </StepCounter>
+      <StepTracker progress={metadata?.current} total={metadata?.total} />
+
       <QuestionText extraSpace first>
         {t("questionary:question14.question")}
       </QuestionText>
-      <QuestionNote>{t('questionary:question14.note')}</QuestionNote>
+      <QuestionNote>{t("questionary:question14.note")}</QuestionNote>
       <Controller
         control={control}
         name="conditions"

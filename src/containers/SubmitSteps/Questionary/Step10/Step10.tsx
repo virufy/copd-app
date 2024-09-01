@@ -30,10 +30,27 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
+  StepTracker,
+  StepCounter,
 } from "../style";
 
 const schema = Yup.object({
-    symptoms: Yup.array().of(Yup.string().oneOf(['A persistent chest cough with phlegm that does not go away', 'Frequent chest infections', 'Wheezing', 'Weight loss', 'Tiredness', 'Swollen ankles from a build-up of fluid (oedema)', 'Chest pain', 'Coughing up blood', 'Other'])).min(1).required()
+  symptoms: Yup.array()
+    .of(
+      Yup.string().oneOf([
+        "A persistent chest cough with phlegm that does not go away",
+        "Frequent chest infections",
+        "Wheezing",
+        "Weight loss",
+        "Tiredness",
+        "Swollen ankles from a build-up of fluid (oedema)",
+        "Chest pain",
+        "Coughing up blood",
+        "Other",
+      ])
+    )
+    .min(1)
+    .required(),
 }).defined();
 
 type Step10Type = Yup.InferType<typeof schema>;
@@ -93,52 +110,58 @@ const Step11 = ({
     setSubtitle("");
   }, [handleDoBack, setDoGoBack, setTitle, setType, metadata, t, setSubtitle]);
 
-  
   const options = [
     {
-      value: 'A persistent chest cough with phlegm that does not go away',
-      label: t('questionary:question10.options.A persistent chest cough with phlegm that does not go away'),
+      value: "A persistent chest cough with phlegm that does not go away",
+      label: t(
+        "questionary:question10.options.A persistent chest cough with phlegm that does not go away"
+      ),
     },
     {
-      value: 'Frequent chest infections',
-      label: t('questionary:question10.options.Frequent chest infections'),
+      value: "Frequent chest infections",
+      label: t("questionary:question10.options.Frequent chest infections"),
     },
     {
-      value: 'Wheezing',
-      label: t('questionary:question10.options.Wheezing'),
+      value: "Wheezing",
+      label: t("questionary:question10.options.Wheezing"),
     },
     {
-      value: 'Weight loss',
-      label: t('questionary:question10.options.Weight loss'),
+      value: "Weight loss",
+      label: t("questionary:question10.options.Weight loss"),
     },
     {
-      value: 'Tiredness',
-      label: t('questionary:question10.options.Tiredness'),
+      value: "Tiredness",
+      label: t("questionary:question10.options.Tiredness"),
     },
     {
-      value: 'Swollen ankles without injury',
-      label: t('questionary:question10.options.Swollen ankles without injury'),
+      value: "Swollen ankles without injury",
+      label: t("questionary:question10.options.Swollen ankles without injury"),
     },
     {
-      value: 'Chest pain',
-      label: t('questionary:question10.options.Chest pain'),
+      value: "Chest pain",
+      label: t("questionary:question10.options.Chest pain"),
     },
     {
-      value: 'Coughing up blood',
-      label: t('questionary:question10.options.Coughing up blood'),
+      value: "Coughing up blood",
+      label: t("questionary:question10.options.Coughing up blood"),
     },
     {
-      value: 'Other',
-      label: t('questionary:question10.options.Other'),
+      value: "Other",
+      label: t("questionary:question10.options.Other"),
     },
   ];
 
   return (
     <MainContainer>
+      <StepCounter>
+        {metadata?.current} {t("questionary:stepOf")} {metadata?.total}
+      </StepCounter>
+      <StepTracker progress={metadata?.current} total={metadata?.total} />
+
       <QuestionText extraSpace first>
         {t("questionary:question10.question")}
       </QuestionText>
-      <QuestionNote>{t('questionary:question10.note')}</QuestionNote>
+      <QuestionNote>{t("questionary:question10.note")}</QuestionNote>
       <Controller
         control={control}
         name="symptoms"

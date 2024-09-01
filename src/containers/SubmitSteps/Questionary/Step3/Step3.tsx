@@ -30,10 +30,12 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
+  StepCounter,
+  StepTracker,
 } from "../style";
 
 const schema = Yup.object({
-    sex: Yup.string().oneOf(['Female', 'Male', 'Decline to answer']).required()
+  sex: Yup.string().oneOf(["Female", "Male", "Decline to answer"]).required(),
 }).defined();
 
 type Step3Type = Yup.InferType<typeof schema>;
@@ -93,28 +95,32 @@ const Step4 = ({
     setSubtitle("");
   }, [handleDoBack, setDoGoBack, setTitle, setType, metadata, t, setSubtitle]);
 
-  
   const options = [
     {
-      value: 'Female',
-      label: t('questionary:question3.options.Female'),
+      value: "Female",
+      label: t("questionary:question3.options.Female"),
     },
     {
-      value: 'Male',
-      label: t('questionary:question3.options.Male'),
+      value: "Male",
+      label: t("questionary:question3.options.Male"),
     },
     {
-      value: 'Decline to answer',
-      label: t('questionary:question3.options.Decline to answer'),
+      value: "Decline to answer",
+      label: t("questionary:question3.options.Decline to answer"),
     },
   ];
 
   return (
     <MainContainer>
+      <StepCounter>
+        {metadata?.current} {t("questionary:stepOf")} {metadata?.total}
+      </StepCounter>
+      <StepTracker progress={metadata?.current} total={metadata?.total} />
+
       <QuestionText extraSpace first>
         {t("questionary:question3.question")}
       </QuestionText>
-      <QuestionNote>{t('questionary:question3.note')}</QuestionNote>
+      <QuestionNote>{t("questionary:question3.note")}</QuestionNote>
       <Controller
         control={control}
         name="sex"

@@ -30,13 +30,22 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
+  StepCounter,
+  StepTracker,
 } from "../style";
 
 const schema = Yup.object({
-    COPDstage: Yup.string().oneOf(['GOLD I - mild: FEV1 ≥80% predicted', 'GOLD II - moderate: 50% ≤ FEV1 <80%', 'GOLD III - severe: 30% ≤ FEV1 <50% predicted', 'GOLD IV - very severe: FEV1 <30% predicted']).required(),
-    FEV1: Yup.string().required('Required Field'),
-    FVC: Yup.string().required('Required Field'),
-    ratio: Yup.string().required('Required Field'),
+  COPDstage: Yup.string()
+    .oneOf([
+      "GOLD I - mild: FEV1 ≥80% predicted",
+      "GOLD II - moderate: 50% ≤ FEV1 <80%",
+      "GOLD III - severe: 30% ≤ FEV1 <50% predicted",
+      "GOLD IV - very severe: FEV1 <30% predicted",
+    ])
+    .required(),
+  FEV1: Yup.string().required("Required Field"),
+  FVC: Yup.string().required("Required Field"),
+  ratio: Yup.string().required("Required Field"),
 }).defined();
 
 type Step11Type = Yup.InferType<typeof schema>;
@@ -96,28 +105,32 @@ const Step12 = ({
     setSubtitle("");
   }, [handleDoBack, setDoGoBack, setTitle, setType, metadata, t, setSubtitle]);
 
-  
   const options = [
     {
-      value: 'GOLD I - mild: FEV1 ≥80% predicted',
-      label: t('questionary:question11.options.FEV1 ≥80% predicted')
+      value: "GOLD I - mild: FEV1 ≥80% predicted",
+      label: t("questionary:question11.options.FEV1 ≥80% predicted"),
     },
     {
-      value: 'GOLD II - moderate: 50% ≤ FEV1 <80%',
-      label: t('questionary:question11.options.50% ≤ FEV1 <80%'),
+      value: "GOLD II - moderate: 50% ≤ FEV1 <80%",
+      label: t("questionary:question11.options.50% ≤ FEV1 <80%"),
     },
     {
-      value: 'GOLD III - severe: 30% ≤ FEV1 <50% predicted',
-      label: t('questionary:question11.options.30% ≤ FEV1 <50% predicted'),
+      value: "GOLD III - severe: 30% ≤ FEV1 <50% predicted",
+      label: t("questionary:question11.options.30% ≤ FEV1 <50% predicted"),
     },
     {
-      value: 'GOLD IV - very severe: FEV1 <30% predicted',
-      label: t('questionary:question11.options.FEV1 <30% predicted'),
+      value: "GOLD IV - very severe: FEV1 <30% predicted",
+      label: t("questionary:question11.options.FEV1 <30% predicted"),
     },
   ];
 
   return (
     <MainContainer>
+      <StepCounter>
+        {metadata?.current} {t("questionary:stepOf")} {metadata?.total}
+      </StepCounter>
+      <StepTracker progress={metadata?.current} total={metadata?.total} />
+
       <QuestionText extraSpace first>
         {t("questionary:question11.questionA")}
       </QuestionText>
@@ -148,8 +161,7 @@ const Step12 = ({
         )}
       />
 
-
-      <QuestionText>{t('questionary:question11.questionB')}</QuestionText>
+      <QuestionText>{t("questionary:question11.questionB")}</QuestionText>
       <Controller
         control={control}
         name="FEV1"
@@ -161,7 +173,7 @@ const Step12 = ({
               value={value}
               onChange={onChange}
               type="text"
-              placeholder={t('questionary:question11.questionB')}
+              placeholder={t("questionary:question11.questionB")}
               autoComplete="Off"
             />
           </>
@@ -173,14 +185,15 @@ const Step12 = ({
         render={({ message }) => (
           <p
             style={{
-              fontFamily: 'Source Sans Pro',
+              fontFamily: "Source Sans Pro",
             }}
-          >{message}
+          >
+            {message}
           </p>
         )}
       />
 
-      <QuestionText>{t('questionary:question11.questionC')}</QuestionText>
+      <QuestionText>{t("questionary:question11.questionC")}</QuestionText>
       <Controller
         control={control}
         name="FVC"
@@ -192,7 +205,7 @@ const Step12 = ({
               value={value}
               onChange={onChange}
               type="text"
-              placeholder={t('questionary:question11.placeholderC')}
+              placeholder={t("questionary:question11.placeholderC")}
               autoComplete="Off"
             />
           </>
@@ -204,14 +217,15 @@ const Step12 = ({
         render={({ message }) => (
           <p
             style={{
-              fontFamily: 'Source Sans Pro',
+              fontFamily: "Source Sans Pro",
             }}
-          >{message}
+          >
+            {message}
           </p>
         )}
       />
 
-      <QuestionText>{t('questionary:question11.questionD')}</QuestionText>
+      <QuestionText>{t("questionary:question11.questionD")}</QuestionText>
       <Controller
         control={control}
         name="ratio"
@@ -223,7 +237,7 @@ const Step12 = ({
               value={value}
               onChange={onChange}
               type="text"
-              placeholder={t('questionary:question11.placeholderD')}
+              placeholder={t("questionary:question11.placeholderD")}
               autoComplete="Off"
             />
           </>
@@ -235,9 +249,10 @@ const Step12 = ({
         render={({ message }) => (
           <p
             style={{
-              fontFamily: 'Source Sans Pro',
+              fontFamily: "Source Sans Pro",
             }}
-          >{message}
+          >
+            {message}
           </p>
         )}
       />

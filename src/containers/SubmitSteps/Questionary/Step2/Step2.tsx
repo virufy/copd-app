@@ -30,18 +30,21 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
+  StepCounter,
+  StepTracker,
 } from "../style";
 
 const schema = Yup.object({
-  ethnicity: Yup.string().oneOf([
-        "American Indian or Alaska Native",
-        "Asian",
-        "Black or African American",
-        "Hispanic, Latino, or Spanish Origin",
-        "White",
-        "Other",
-        "Decline to answer",
-      ])
+  ethnicity: Yup.string()
+    .oneOf([
+      "American Indian or Alaska Native",
+      "Asian",
+      "Black or African American",
+      "Hispanic, Latino, or Spanish Origin",
+      "White",
+      "Other",
+      "Decline to answer",
+    ])
     .required(),
 }).defined();
 
@@ -105,7 +108,9 @@ const Step3 = ({
   const options = [
     {
       value: "American Indian or Alaska Native",
-      label: t("questionary:question2:options.American Indian or Alaska Native"),
+      label: t(
+        "questionary:question2:options.American Indian or Alaska Native"
+      ),
     },
     {
       value: "Asian",
@@ -137,6 +142,11 @@ const Step3 = ({
 
   return (
     <MainContainer>
+      <StepCounter>
+        {metadata?.current} {t("questionary:stepOf")} {metadata?.total}
+      </StepCounter>
+      <StepTracker progress={metadata?.current} total={metadata?.total} />
+      
       <QuestionText extraSpace first>
         {t("questionary:question2.question")}
       </QuestionText>

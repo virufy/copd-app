@@ -30,10 +30,12 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
+  StepTracker,
+  StepCounter,
 } from "../style";
 
 const schema = Yup.object({
-    beenHospitalized: Yup.string().oneOf(['Yes', 'No']).required()
+  beenHospitalized: Yup.string().oneOf(["Yes", "No"]).required(),
 }).defined();
 
 type Step13Type = Yup.InferType<typeof schema>;
@@ -93,20 +95,24 @@ const Step14 = ({
     setSubtitle("");
   }, [handleDoBack, setDoGoBack, setTitle, setType, metadata, t, setSubtitle]);
 
-  
   const options = [
     {
-      value: 'Yes',
-      label: t('questionary:question13.options.Yes'),
+      value: "Yes",
+      label: t("questionary:question13.options.Yes"),
     },
     {
-      value: 'No',
-      label: t('questionary:question13.options.No'),
+      value: "No",
+      label: t("questionary:question13.options.No"),
     },
   ];
 
   return (
     <MainContainer>
+      <StepCounter>
+        {metadata?.current} {t("questionary:stepOf")} {metadata?.total}
+      </StepCounter>
+      <StepTracker progress={metadata?.current} total={metadata?.total} />
+
       <QuestionText extraSpace first>
         {t("questionary:question13.question")}
       </QuestionText>

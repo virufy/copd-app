@@ -30,10 +30,22 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
+  StepTracker,
+  StepCounter,
 } from "../style";
 
 const schema = Yup.object({
-  typeSmoking: Yup.array().of(Yup.string().oneOf(['Tobacco Cigarettes', 'E-cigarettes', 'Vape', 'Marijuana Cigarettes'])).min(1).required()
+  typeSmoking: Yup.array()
+    .of(
+      Yup.string().oneOf([
+        "Tobacco Cigarettes",
+        "E-cigarettes",
+        "Vape",
+        "Marijuana Cigarettes",
+      ])
+    )
+    .min(1)
+    .required(),
 }).defined();
 
 type Step6Type = Yup.InferType<typeof schema>;
@@ -93,32 +105,36 @@ const Step7 = ({
     setSubtitle("");
   }, [handleDoBack, setDoGoBack, setTitle, setType, metadata, t, setSubtitle]);
 
-  
   const options = [
     {
-      value: 'Tobacco Cigarettes',
-      label: t('questionary:question6.options.Tobacco Cigarettes'),
+      value: "Tobacco Cigarettes",
+      label: t("questionary:question6.options.Tobacco Cigarettes"),
     },
     {
-      value: 'E-cigarettes',
-      label: t('questionary:question6.options.E-cigarettes'),
+      value: "E-cigarettes",
+      label: t("questionary:question6.options.E-cigarettes"),
     },
     {
-      value: 'Vape',
-      label: t('questionary:question6.options.Vape'),
+      value: "Vape",
+      label: t("questionary:question6.options.Vape"),
     },
     {
-      value:'Marijuana Cigarettes',
-      label: t('questionary:question6.options.Marijuana Cigarettes')
-    }
+      value: "Marijuana Cigarettes",
+      label: t("questionary:question6.options.Marijuana Cigarettes"),
+    },
   ];
 
   return (
     <MainContainer>
+      <StepCounter>
+        {metadata?.current} {t("questionary:stepOf")} {metadata?.total}
+      </StepCounter>
+      <StepTracker progress={metadata?.current} total={metadata?.total} />
+
       <QuestionText extraSpace first>
         {t("questionary:question6.question")}
       </QuestionText>
-      <QuestionNote>{t('questionary:question6.note')}</QuestionNote>
+      <QuestionNote>{t("questionary:question6.note")}</QuestionNote>
       <Controller
         control={control}
         name="typeSmoking"

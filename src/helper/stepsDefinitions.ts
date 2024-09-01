@@ -69,7 +69,7 @@ function getQuestionarySteps(storeKey: string): Wizard.Step[] {
   const baseMetadata = {
     total: 16,
     progressCurrent: 1,
-    progressTotal: 16,
+    progressTotal: 1,
   };
   return [
     {

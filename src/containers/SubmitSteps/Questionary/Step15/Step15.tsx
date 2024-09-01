@@ -30,10 +30,25 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
+  StepCounter,
+  StepTracker,
 } from "../style";
 
 const schema = Yup.object({
-    treatments: Yup.array().of(Yup.string().oneOf(['None', 'Oxygen therapy', 'Inhalers', 'Pulmonary rehabilitation', 'Surgery or a lung transplant', 'Oral treatments, e.g.  tablets', 'Other'])).min(1).required()
+  treatments: Yup.array()
+    .of(
+      Yup.string().oneOf([
+        "None",
+        "Oxygen therapy",
+        "Inhalers",
+        "Pulmonary rehabilitation",
+        "Surgery or a lung transplant",
+        "Oral treatments, e.g.  tablets",
+        "Other",
+      ])
+    )
+    .min(1)
+    .required(),
 }).defined();
 
 type Step15Type = Yup.InferType<typeof schema>;
@@ -93,44 +108,48 @@ const Step16 = ({
     setSubtitle("");
   }, [handleDoBack, setDoGoBack, setTitle, setType, metadata, t, setSubtitle]);
 
-  
   const options = [
     {
-      value: 'None',
-      label: t('questionary:question15.options.None'),
+      value: "None",
+      label: t("questionary:question15.options.None"),
     },
     {
-      value: 'Oxygen therapy',
-      label: t('questionary:question15.options.Oxygen therapy'),
+      value: "Oxygen therapy",
+      label: t("questionary:question15.options.Oxygen therapy"),
     },
     {
-      value: 'Inhalers',
-      label: t('questionary:question15.options.Inhalers'),
+      value: "Inhalers",
+      label: t("questionary:question15.options.Inhalers"),
     },
     {
-      value: 'Pulmonary rehabilitation',
-      label: t('questionary:question15.options.Pulmonary rehabilitation'),
+      value: "Pulmonary rehabilitation",
+      label: t("questionary:question15.options.Pulmonary rehabilitation"),
     },
     {
-      value: 'Surgery or a lung transplant',
-      label: t('questionary:question15.options.Surgery or a lung transplant'),
+      value: "Surgery or a lung transplant",
+      label: t("questionary:question15.options.Surgery or a lung transplant"),
     },
     {
-      value: 'Oral treatments, e.g.  tablets',
-      label: t('questionary:question15.options.Oral treatments'),
+      value: "Oral treatments, e.g.  tablets",
+      label: t("questionary:question15.options.Oral treatments"),
     },
     {
-      value: 'Other',
-      label: t('questionary:question15.options.Other'),
+      value: "Other",
+      label: t("questionary:question15.options.Other"),
     },
   ];
 
   return (
     <MainContainer>
+      <StepCounter>
+        {metadata?.current} {t("questionary:stepOf")} {metadata?.total}
+      </StepCounter>
+      <StepTracker progress={metadata?.current} total={metadata?.total} />
+
       <QuestionText extraSpace first>
         {t("questionary:question15.question")}
       </QuestionText>
-      <QuestionNote>{t('questionary:question15.note')}</QuestionNote>
+      <QuestionNote>{t("questionary:question15.note")}</QuestionNote>
       <Controller
         control={control}
         name="treatments"

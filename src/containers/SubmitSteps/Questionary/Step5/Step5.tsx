@@ -30,10 +30,19 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
+  StepCounter,
+  StepTracker,
 } from "../style";
 
 const schema = Yup.object({
-    yearsSmoked: Yup.string().oneOf(['Less than one year', '1 to 5 years', '5 to 10 years', '> 10 years']).required()
+  yearsSmoked: Yup.string()
+    .oneOf([
+      "Less than one year",
+      "1 to 5 years",
+      "5 to 10 years",
+      "> 10 years",
+    ])
+    .required(),
 }).defined();
 
 type Step5Type = Yup.InferType<typeof schema>;
@@ -93,28 +102,32 @@ const Step6 = ({
     setSubtitle("");
   }, [handleDoBack, setDoGoBack, setTitle, setType, metadata, t, setSubtitle]);
 
-  
   const options = [
     {
-      value: 'Less than one year',
-      label: t('questionary:question5.options.Less than one year'),
+      value: "Less than one year",
+      label: t("questionary:question5.options.Less than one year"),
     },
     {
-      value: '1 to 5 years',
-      label: t('questionary:question5.options.1 to 5 years'),
+      value: "1 to 5 years",
+      label: t("questionary:question5.options.1 to 5 years"),
     },
     {
-      value: '5 to 10 years',
-      label: t('questionary:question5.options.5 to 10 years'),
+      value: "5 to 10 years",
+      label: t("questionary:question5.options.5 to 10 years"),
     },
     {
-      value: '> 10 years',
-      label: t('questionary:question5.options.> 10 years'),
+      value: "> 10 years",
+      label: t("questionary:question5.options.> 10 years"),
     },
   ];
- 
+
   return (
     <MainContainer>
+      <StepCounter>
+        {metadata?.current} {t("questionary:stepOf")} {metadata?.total}
+      </StepCounter>
+      <StepTracker progress={metadata?.current} total={metadata?.total} />
+
       <QuestionText extraSpace first>
         {t("questionary:question5.question")}
       </QuestionText>

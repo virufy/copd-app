@@ -30,10 +30,19 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
+  StepTracker,
+  StepCounter,
 } from "../style";
 
 const schema = Yup.object({
-    COPDExacerbations: Yup.string().oneOf(['Yes, frequently', 'Yes, suffering from flare-ups currently', 'Yes, rarely', 'No, Never']).required()
+  COPDExacerbations: Yup.string()
+    .oneOf([
+      "Yes, frequently",
+      "Yes, suffering from flare-ups currently",
+      "Yes, rarely",
+      "No, Never",
+    ])
+    .required(),
 }).defined();
 
 type Step12Type = Yup.InferType<typeof schema>;
@@ -93,28 +102,34 @@ const Step13 = ({
     setSubtitle("");
   }, [handleDoBack, setDoGoBack, setTitle, setType, metadata, t, setSubtitle]);
 
-  
   const options = [
     {
-      value: 'Yes, frequently',
-      label: t('questionary:question12.options.Yes, frequently'),
+      value: "Yes, frequently",
+      label: t("questionary:question12.options.Yes, frequently"),
     },
     {
-      value: 'Yes, suffering from flare-ups currently',
-      label: t('questionary:question12.options.Yes, suffering from flare-ups currently'),
+      value: "Yes, suffering from flare-ups currently",
+      label: t(
+        "questionary:question12.options.Yes, suffering from flare-ups currently"
+      ),
     },
     {
-      value: 'Yes, rarely',
-      label: t('questionary:question12.options.Yes, rarely'),
+      value: "Yes, rarely",
+      label: t("questionary:question12.options.Yes, rarely"),
     },
     {
-      value: 'No, Never',
-      label: t('questionary:question12.options.No, Never'),
+      value: "No, Never",
+      label: t("questionary:question12.options.No, Never"),
     },
   ];
 
   return (
     <MainContainer>
+      <StepCounter>
+        {metadata?.current} {t("questionary:stepOf")} {metadata?.total}
+      </StepCounter>
+      <StepTracker progress={metadata?.current} total={metadata?.total} />
+
       <QuestionText extraSpace first>
         {t("questionary:question12.question")}
       </QuestionText>

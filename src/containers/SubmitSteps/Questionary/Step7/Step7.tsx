@@ -30,10 +30,19 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
+  StepCounter,
+  StepTracker,
 } from "../style";
 
 const schema = Yup.object({
-    freqSmoking: Yup.string().oneOf(['One per day', '2-3 times a day', '3-5 times a day', '> 5 times a day']).required()
+  freqSmoking: Yup.string()
+    .oneOf([
+      "One per day",
+      "2-3 times a day",
+      "3-5 times a day",
+      "> 5 times a day",
+    ])
+    .required(),
 }).defined();
 
 type Step7Type = Yup.InferType<typeof schema>;
@@ -93,28 +102,32 @@ const Step8 = ({
     setSubtitle("");
   }, [handleDoBack, setDoGoBack, setTitle, setType, metadata, t, setSubtitle]);
 
-  
   const options = [
     {
-      value: 'One per day',
-      label: t('questionary:question7.options.One per day'),
+      value: "One per day",
+      label: t("questionary:question7.options.One per day"),
     },
     {
-      value: '2-3 times a day',
-      label: t('questionary:question7.options.2-3 times a day'),
+      value: "2-3 times a day",
+      label: t("questionary:question7.options.2-3 times a day"),
     },
     {
-      value: '3-5 times a day',
-      label: t('questionary:question7.options.3-5 times a day'),
+      value: "3-5 times a day",
+      label: t("questionary:question7.options.3-5 times a day"),
     },
     {
-      value: '> 5 times a day',
-      label: t('questionary:question7.options.> 5 times a day')
-    }
+      value: "> 5 times a day",
+      label: t("questionary:question7.options.> 5 times a day"),
+    },
   ];
 
   return (
     <MainContainer>
+      <StepCounter>
+        {metadata?.current} {t("questionary:stepOf")} {metadata?.total}
+      </StepCounter>
+      <StepTracker progress={metadata?.current} total={metadata?.total} />
+
       <QuestionText extraSpace first>
         {t("questionary:question7.question")}
       </QuestionText>

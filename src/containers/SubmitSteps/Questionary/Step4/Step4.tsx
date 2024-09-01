@@ -30,10 +30,14 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
+  StepCounter,
+  StepTracker,
 } from "../style";
 
 const schema = Yup.object({
-  isSmoking: Yup.string().oneOf(['Yes, current smoker', 'Yes, in the past', 'No, never smoked']).required('Required Field'),
+  isSmoking: Yup.string()
+    .oneOf(["Yes, current smoker", "Yes, in the past", "No, never smoked"])
+    .required("Required Field"),
 }).defined();
 
 type Step4Type = Yup.InferType<typeof schema>;
@@ -58,8 +62,6 @@ const Step5 = ({
     defaultValues: state?.[storeKey],
     resolver: yupResolver(schema),
   });
-
-  console.log(Step5);
 
   const { errors, isValid } = formState;
 
@@ -95,24 +97,28 @@ const Step5 = ({
     setSubtitle("");
   }, [handleDoBack, setDoGoBack, setTitle, setType, metadata, t, setSubtitle]);
 
-  
   const options = [
     {
-      value: 'Yes, current smoker',
-      label: t('questionary:question4.options.Yes, current smoker'),
+      value: "Yes, current smoker",
+      label: t("questionary:question4.options.Yes, current smoker"),
     },
     {
-      value: 'Yes, in the past',
-      label: t('questionary:question4.options.Yes, in the past'),
+      value: "Yes, in the past",
+      label: t("questionary:question4.options.Yes, in the past"),
     },
     {
-      value: 'No, never smoked',
-      label: t('questionary:question4.options.No, never smoked'),
-    }
+      value: "No, never smoked",
+      label: t("questionary:question4.options.No, never smoked"),
+    },
   ];
 
   return (
     <MainContainer>
+      <StepCounter>
+        {metadata?.current} {t("questionary:stepOf")} {metadata?.total}
+      </StepCounter>
+      <StepTracker progress={metadata?.current} total={metadata?.total} />
+
       <QuestionText extraSpace first>
         {t("questionary:question4.question")}
       </QuestionText>
