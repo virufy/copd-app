@@ -531,6 +531,8 @@
       }
     },
     "headerQuestions": "Questionnaire",
+    "requiredField": "Required Field",
+    "Please enter a valid number": "Please enter a valid number",
     "title": "Let’s answer some quick questions!",
     "note": "Your responses will help us build a more accurate and consistent algorithm!",
     "allThatApply": "(select all that apply)",
