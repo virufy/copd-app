@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import usePortal from "react-useportal";
 import { useTranslation } from "react-i18next";
 
@@ -33,6 +33,10 @@ import {
   StepCounter,
   StepTracker,
 } from "../style";
+
+interface LocationState {
+  previousStep?: string;
+}
 
 const schema = Yup.object({
   exposure: Yup.array()
@@ -80,10 +84,17 @@ const Step9 = ({
   // States
   const [activeStep, setActiveStep] = useState(true);
 
+  const location = useLocation<LocationState>();
+  // stores previousStep when skipped from step4, otherwise null
+  const previousStepAfterSkip = location.state; 
+
   // Callbacks
   const handleDoBack = useCallback(() => {
     setActiveStep(false);
-    if (previousStep) {
+    if(previousStepAfterSkip?.previousStep){//when going back after skipping
+      history.push(previousStepAfterSkip.previousStep);
+    }
+    else if (previousStep) {
       history.push(previousStep);
     } else {
       history.goBack();

@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import usePortal from "react-useportal";
 import { useTranslation } from "react-i18next";
 
@@ -62,8 +62,9 @@ const Step5 = ({
     defaultValues: state?.[storeKey],
     resolver: yupResolver(schema),
   });
-
   const { errors, isValid } = formState;
+
+  const baseUrl = "/submit-steps";
 
   // States
   const [activeStep, setActiveStep] = useState(true);
@@ -78,12 +79,21 @@ const Step5 = ({
     }
   }, [history, previousStep]);
 
+  //get URL
+  const location = useLocation();
+  const currentURL = location.pathname + location.search;
+
   const onSubmit = async (values: Step4Type) => {
     if (values) {
       action(values);
       if (nextStep) {
+        //skip smoking related questions when never smoked
+        const nextAndPrevStep: any[] =
+          values.isSmoking === "No, never smoked"
+            ? [`${baseUrl}/questionary/step8`, currentURL]
+            : [`${baseUrl}/questionary/step5`, null]; //an array of [nextStep, previousStep]
         setActiveStep(false);
-        history.push(nextStep);
+        history.push(nextAndPrevStep[0], { previousStep: nextAndPrevStep[1] });
       }
     }
   };
