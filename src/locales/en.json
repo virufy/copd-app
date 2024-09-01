@@ -449,7 +449,7 @@
         "Wheezing": "Wheezing",
         "Weight loss": "Weight loss",
         "Tiredness": "Tiredness",
-        "Swollen ankles from a build-up of fluid (oedema)": "Swollen ankles from a build-up of fluid (oedema)",
+        "Swollen ankles without injury": "Swollen ankles without injury",
         "Chest pain": "Chest pain",
         "Coughing up blood": "Coughing up blood",
         "Other": "Other"
@@ -531,8 +531,8 @@
       }
     },
     "headerQuestions": "Questionnaire",
-    "title": "Let's answer a few brief questions!",
-    "note": "Your answers will help us create a more accurate and consistent algorithm.",
+    "title": "Let’s answer some quick questions!",
+    "note": "Your responses will help us build a more accurate and consistent algorithm!",
     "allThatApply": "(select all that apply)",
     "stepOf": "of",
     "nextButton": "Next",

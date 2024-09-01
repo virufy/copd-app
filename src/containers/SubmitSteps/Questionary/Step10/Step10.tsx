@@ -116,8 +116,8 @@ const Step11 = ({
       label: t('questionary:question10.options.Tiredness'),
     },
     {
-      value: 'Swollen ankles from a build-up of fluid (oedema)',
-      label: t('questionary:question10.options.Swollen ankles from a build-up of fluid (oedema)'),
+      value: 'Swollen ankles without injury',
+      label: t('questionary:question10.options.Swollen ankles without injury'),
     },
     {
       value: 'Chest pain',
