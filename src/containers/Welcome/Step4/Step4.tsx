@@ -27,9 +27,9 @@ import {
 } from '../style';
 
 const defaultAdviseList = [
-  'Please use your own device and wear a face mask when appropriate. ',
+  'Please use your own device and wear a face mask when appropriate.',
   'Disinfect your device and any nearby surfaces after recording your cough/speech.',
-  ' If you have an underlying condition where coughing increases your risks  of suffering an illness, please consult your doctor before participating.',
+  'If you have an underlying condition where coughing increases your risks  of suffering an illness, please consult your doctor before participating.',
   'If you think your symptoms are getting worse, contact your doctor.',
 ];
 

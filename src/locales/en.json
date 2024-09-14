@@ -2,14 +2,14 @@
   "main": {
     "title": "COVID-19 Cough Data Collection Study",
     "logoIntro": "An Independent Nonprofit Research Organization",
-    "note": "<strong>Please note:</strong> This form is for data collection only. It will not predict your COVID-19 status or diagnose any disease, disorder, or other health condition. Virufy is conducting research and will use the information you provide for that research only. Virufy will not take place of a doctor and would like to remind you it is your responsibility to seek medical advice from your doctor.",
+    "note": "<strong>Please note:</strong> This form is for data collection only. It will not predict or diagnose any disease, disorder, or other health condition. Virufy is conducting research and will use the information you provide for research. The Virufy app doesn’t replace a doctor. Remember that it is your responsibility to seek medical advice from your doctor.",
     "paragraph1": "Welcome! This study should only take about 5 minutes to complete.",
     "selectYourLanguage": "Language",
     "paragraph2": "Covid-19 Cough Data Collection Study",
     "selectCountry": "Select country",
     "region": "Region",
     "selectRegion": "Select region",
-    "selectLocation": "Location",
+    "selectLocation": "Country",
     "patientId": "Patient ID",
     "hospitalId": "Hospital ID",
     "regionRequired": "Please select region",
@@ -242,27 +242,28 @@
     "title": "About Us",
     "ourSupporters": "Our Supporters",
     "introParagraph": "Welcome to our study! This should only take you about 5 minutes to complete. Before we begin, let’s discuss what we will cover:",
-    "aboutParagraph": "<0>Virufy is a <strong>nonprofit organization</strong> that is working to develop the means to use <strong> artificial intelligence (Al) to screen for COVID-19 from cough patterns</strong> rapidly and at no cost through use of a smartphone for the benefit of low-income countries.</0><0>Our team includes researchers from over <strong>25 countries</strong>. Our research has shown that Al technology may be able to identify COVID's unique cough signature.</0><0>By collecting <strong>coughs recordings</strong> from people around the world, Virufy is improving the robustness of its AI algorithm in recognizing COVID's unique sound pattern.</0><0><strong>You have the power</strong> to help benefit millions of people across the globe by <strong>contributing your cough</strong> in our study.</0>",
+    "aboutParagraph": "<0><strong>Virufy</strong> is a robust <strong>501(c)(3) nonprofit research organization</strong> developing AI algorithms to identify various respiratory diseases like COVID-19, flu, and TB through analysis of smartphone-recorded forced coughing sounds. Our team comprises <strong>50 partner organizations</strong> including Amazon Web Services and One Young World, and 250 volunteers including students and faculty from Stanford, Harvard, and MIT.</0><0>We are building a mapping system to track and predict the spread of respiratory diseases. Please join us by sharing <strong>your cough sounds</strong> to help us build a dashboard to support the health of your local community.</0>",
     "aboutBeforeText": "Before we begin, we will give you a 5 minute explanation about us and our research.",
     "aboutTitle": "Organization overview",
     "bulletsIntro": "<strong>Intro: </strong>About us and Safety Reminders",
     "bulletCough": "<strong>Cough Into Phone</strong>",
     "bulletQuestions": "<strong>Quick Health Questions</strong>",
     "nextButton": "Next",
+    "concentButton": "Concent",
     "followingPage": "Following page"
   },
   "consent": {
     "title": "Consent to the Study",
-    "paragraph1": "Virufy cares about your privacy and is advised by licensed data privacy experts. The information and recordings you provide will only be used for the purposes described in our <1>Privacy Policy</1> and Consent Form. Please read the Consent Form:",
+    "paragraph1": "Virufy cares about your privacy and is advised by licensed data privacy experts. The information and recordings you provide will only be used for the purposes described in our <1>privacy policy</1> and <3>consent form</3>. Please read the Consent Form:",
     "paragraph2Title": "Virufy Explicit Consent to Collect Personal Information and Participate in Research Form",
     "paragraph2": "\"Collection of Smartphone Data for Screening of COVID-19\"",
     "paragraph3": "By checking the below boxes, you acknowledge that you have read and understood the Virufy privacy policy, and that you are providing your explicit consent to Virufy’s collection and processing of the categories of biometric and health information enumerated below.",
     "certifyBrazil": "I certify that I am at least 18 years old and agree to the terms of this Consent Form, hereby expressly consenting to the collection and processing of my personal information, biometric information, and health information.",
     "certify": "I certify that I am at least 18 years old and agree to the terms of this Consent Form.",
-    "agree": "I have read, understood, and agree to the terms of the Virufy <1>Privacy Policy<1>.",
+    "agree": "I agree to the terms of the Virufy <1>Privacy Policy<1>.",
     "collection": " I hereby expressly consent to the collection and processing of my personal information, biometric information, and health information.",
     "collectionColombia": "I hereby expressly consent to the collection, processing and transfer of my personal information, biometric information, and health information.",
-    "detection": "I hereby acknowledge and agree that processing shall be done for the purposes indicated above and, in particular but without limitation, for research and compiling a dataset needed for the development of artificial intelligence algorithms for device-based COVID-19 detection.",
+    "detection": "I hereby acknowledge and agree that processing shall be done for the purposes indicated above and, in particular but without limitation, for training artificial intelligence algorithms to analyze cough audio recordings to better determine spread of respiratory disease.",
     "detectionBrazil": "I hereby acknowledge and agree that the processing shall be done for the purposes indicated above, and in particular, but without limitation, for the research and compilation of a data set necessary for the development of artificial intelligence algorithms for device-based device-based COVID-19 detection, to train artificial intelligence algorithms to analyze cough audio recordings to better determine COVID-19 signals.",
     "signs": "I hereby acknowledge and agree that processing shall be done for the purposes indicated above and, in particular but without limitation, for training artificial intelligence algorithms to analyze cough audio recordings to better determine signs of COVID-19.",
     "biometric": "I hereby expressly consent to the sharing of my personal information, biometric information, and health information with third parties as described in this Consent Form and/or the Virufy Privacy Policy.",
@@ -274,10 +275,10 @@
     "title": "Before we Start...",
     "subtitle": "<strong>For your security, we recommend:</strong>",
     "advise_list": [
-      "Please use your own device and wear a mask when appropriate.",
+      "Please use your own device and wear a face mask when appropriate.",
       "Disinfect your device and any affected or nearby surfaces after recording your cough/speech.",
-      "If you have an underlying condition that increases your risk from coughing, please check with your health care provider before participating.",
-      "If you feel your symptoms are getting worse, please contact your local medical response."
+      "If you have an underlying condition where coughing increases your risks  of suffering an illness, please consult your doctor before participating.",
+      "If you think your symptoms are getting worse, contact your doctor."
     ],
     "startButton": "Next"
   },
@@ -391,7 +392,7 @@
     "submissionId": "Your unique submission ID:<br/><2>{{submissionId}}</2>"
   },
   "footerReportProblems": {
-    "message": "¿Algo mal? Reportar un problema"
+    "message": "Something wrong? Report an error"
   },
   "stayInTouch": {
     "title": "Stay in touch!",

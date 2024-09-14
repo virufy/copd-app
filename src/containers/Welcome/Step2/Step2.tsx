@@ -12,7 +12,6 @@ import useHeaderContext from 'hooks/useHeaderContext';
 // Components
 import WizardButtons from 'components/WizardButtons';
 import { BlackText } from 'components/Texts';
-import LinkPurple from 'components/LinkPurple';
 
 // Utils
 import { scrollToTop } from 'helper/scrollHelper';
@@ -77,23 +76,17 @@ const Step3 = (p: Wizard.StepProps) => {
         <BlackText>
           <Trans i18nKey="helpVirufy:aboutParagraph">
             <p>
-              Virufy is a <strong>nonprofit organization</strong> that is working
-              to develop the means to use
-              <strong> artificial intelligence (Al) to screen for COVID-19 from cough patterns</strong>
-              rapidly and at no cost through use of a smartphone for the benefit of low-income countries.
+              <strong><u>Virufy</u></strong> is a robust <strong>501(c)(3) nonprofit research organization</strong>
+              developing AI algorithms to identify various respiratory diseases like COVID-19, flu,
+              and TB through analysis of smartphone-recorded forced coughing sounds.
+              Our team comprises <strong>50 partner organizations</strong>
+              including Amazon Web Services and One Young World, and 250 volunteers
+              including students and faculty from Stanford, Harvard, and MIT.
             </p>
             <p>
-              Our team includes researchers from over <strong>25 countries</strong>.
-              <LinkPurple to="https://virufy.org/es/our-approach" target="_blank"> Our research</LinkPurple> has shown that Al technology may be able to identify COVID&apos;s unique coug signature.
-            </p>
-            <p>
-              By collecting <strong>coughs recordings</strong> from people around the world,
-              Virufy is improving the robustness of its AI algorithm in recognizing COVID&apos;s
-              unique sound pattern.
-            </p>
-            <p>
-              <strong>You have the power</strong>to help benefit millions of
-              people across the globe by <strong>contributing your cough</strong> in our study.
+              We are building a mapping system to track and predict the spread of respiratory diseases.
+              Please join us by sharing <strong>your cough sounds</strong> to help us build a dashboard
+              to support the health of your local community.
             </p>
           </Trans>
         </BlackText>

@@ -268,7 +268,7 @@ const Step1 = (p: Wizard.StepProps) => {
           />
 
           <BoldBlackText>
-            {t('main:selectLocation', 'Location')}
+            {t('main:selectLocation', 'Country')}
           </BoldBlackText>
 
           <Controller
@@ -319,7 +319,7 @@ const Step1 = (p: Wizard.StepProps) => {
                 <WizardButtons
                   invert
                   leftDisabled={!isValid}
-                  leftLabel={t('helpVirufy:nextButton')}
+                  leftLabel={t('helpVirufy:concentButton', 'Concent')}
                   leftHandler={handleSubmit(onSubmit)}
                 />
                 <CreatedBy inline />

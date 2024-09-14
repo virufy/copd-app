@@ -25,11 +25,8 @@ import { updateAction } from 'utils/wizard';
 // Header Control
 import useHeaderContext from 'hooks/useHeaderContext';
 
-// Hooks
-import useEmbeddedFile from 'hooks/useEmbeddedFile';
-
 // Utils
-import { Country, buildConsentFilePath } from 'helper/consentPathHelper';
+import { Country } from 'helper/consentPathHelper';
 import { scrollToTop } from 'helper/scrollHelper';
 import { getCountry } from 'helper/stepsDefinitions';
 
@@ -43,7 +40,6 @@ import {
   InnerContainerShapeDown,
   WelcomeContent,
   WelcomeStyledFormAlternative,
-  WelcomeConsentForm,
   CheckboxTitle,
 } from '../style';
 
@@ -78,9 +74,9 @@ const Step4 = (p: Wizard.StepProps) => {
     mode: 'onChange',
   });
   const { errors, isValid } = formState;
-  const { isLoadingFile, file: consentFormContent } = useEmbeddedFile(
-    buildConsentFilePath(currentCountry, state.welcome.language),
-  );
+  // const { isLoadingFile, file: consentFormContent } = useEmbeddedFile(
+  //   buildConsentFilePath(currentCountry, state.welcome.language),
+  // );
 
   // States
   const [activeStep, setActiveStep] = useState(true);
@@ -122,21 +118,20 @@ const Step4 = (p: Wizard.StepProps) => {
             <Trans i18nKey="consent:paragraph1">
               Virufy cares about your privacy and is advised by licensed data privacy experts.
               The information and recordings you provide will only be used for the purposes described in our
-              Privacy Policy and consent form.
+              <Link to="https://virufy.org/privacy_policy" target="_blank">Virufy Privacy Policy</Link> and <Link to={consentPdf[currentCountry]} target="_blank">consent form</Link>.
               Please read the consent Form:
             </Trans>
           </BlackText>
         </InnerContainerShapeDown>
       </ContainerShapeDown>
       <WelcomeContent>
-        <WelcomeConsentForm dangerouslySetInnerHTML={{ __html: isLoadingFile ? 'Cargando...' : consentFormContent }} />
 
         <BlackText>
           <Trans i18nKey="consent:paragraph3">
-            By checking the below boxes, you are granting your explicit, freely given, and informed consent to Virufy to
-            collect, process, and share your information for the purposes indicated above and as provided in greater
-            detail in our Privacy Policy. You can print
-            a copy of this Consent Form for your personal records by
+            By checking the below boxes, you are granting your explicit, freely given,
+            and informed consent to Virufy to collect, process, and share your information
+            for the purposes indicated above and as provided in greater detail in our
+            Privacy Policy. You can print a copy of this Consent Form for your personal records by
             accessing <Link to={consentPdf[currentCountry]} target="_blank">Consent Form</Link>
           </Trans>
         </BlackText>
@@ -173,7 +168,7 @@ const Step4 = (p: Wizard.StepProps) => {
               id="Step2-PolicyTerms"
               label={(
                 <Trans i18nKey="consent:agree">
-                  I have read, understood, and agree to the terms of the <LinkPurple to="https://virufy.org/privacy_policy" target="_blank">Virufy Privacy Policy</LinkPurple>.
+                  I agree to the terms of the <LinkPurple to="https://virufy.org/privacy_policy" target="_blank">Virufy Privacy Policy</LinkPurple>.
                 </Trans>
               )}
               name="agreedPolicyTerms"
@@ -192,9 +187,9 @@ const Step4 = (p: Wizard.StepProps) => {
               id="Step2-DetectionCovid"
               label={(
                 <Trans i18nKey="consent:detection">
-                  I hereby acknowledge and agree that processing shall be done for the purposes indicated
-                  above and, in particular but without limitation, for training artificial intelligence
-                  algorithms to analyze cough audio recordings to better determine spread of respiratory disease.
+                  I hereby acknowledge and agree that processing shall be done for the purposes indicated above and,
+                  in particular but without limitation, for training artificial intelligence algorithms to analyze
+                  cough audio recordings to better determine spread of respiratory disease.
                 </Trans>
                 )}
               name={name}
