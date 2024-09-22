@@ -9,12 +9,22 @@ export const mapOfConsentFiles = {
       'default.html',
     ],
   },
+  Global: {
+    consentLang: [
+      'default.html',
+    ],
+  },
   Japan: {
     consentLang: [
       'default.html',
     ],
   },
   Kuwait: {
+    consentLang: [
+      'default.html',
+    ],
+  },
+  Qatar: {
     consentLang: [
       'default.html',
     ],
@@ -29,22 +39,12 @@ export const mapOfConsentFiles = {
       'default.html',
     ],
   },
-  Qatar: {
-    consentLang: [
-      'default.html',
-    ],
-  },
   'United States': {
     consentLang: [
       'default.html',
     ],
   },
   'United arab emirates': {
-    consentLang: [
-      'default.html',
-    ],
-  },
-  Global: {
     consentLang: [
       'default.html',
     ],

@@ -7,7 +7,7 @@ import {
 // Components
 import FullWidth from 'components/FullWidthDiv';
 import Header, { HeaderContextProvider } from 'components/Header';
-// import FooterReportProblems from 'components/FooterReportProblems';
+import FooterReportProblems from 'components/FooterReportProblems';
 import FooterInstallAsApp from 'components/FooterInstallAsApp';
 
 // hooks
@@ -27,7 +27,7 @@ declare global {
 }
 
 const App = () => {
-  const { search } = useLocation();
+  const { pathname, search } = useLocation();
 
   React.useEffect(() => {
     const params = new URLSearchParams(search);
@@ -56,8 +56,7 @@ const App = () => {
             </Route>
           </Switch>
         </FullWidth>
-        <FooterInstallAsApp />
-        {/* {(!pathname.includes('/submit-steps/thank-you')) && <FooterReportProblems /> } */}
+        {(!pathname.endsWith('/welcome/')) && (pathname.endsWith('/welcome/splash') ? <FooterInstallAsApp /> : <FooterReportProblems />) }
       </HeaderContextProvider>
     </AppContainer>
   );

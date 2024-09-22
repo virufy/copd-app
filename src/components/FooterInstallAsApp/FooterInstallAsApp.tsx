@@ -1,6 +1,5 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useLocation } from 'react-router-dom';
 
 // Modals
 import PWAInstallModal from 'modals/PWAInstallModal';
@@ -13,7 +12,6 @@ import { FooterContainer, DownloadSVG } from './style';
 
 const FooterInstallAsApp = () => {
   const { t } = useTranslation();
-  const location = useLocation();
   const installPwaButtonId = 'virufy-install-button';
   const pwaModalRef = React.useRef<PWAInstallModal>(null);
   const { handlePrompt, isInstalled, setIsInstalled } = usePWAHelpers(installPwaButtonId);
@@ -31,7 +29,6 @@ const FooterInstallAsApp = () => {
       }
     }
   }, [handlePrompt, setIsInstalled]);
-  if (location.pathname !== '/welcome/step-1') return null;
 
   return (
     <>

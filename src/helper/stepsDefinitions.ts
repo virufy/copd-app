@@ -97,9 +97,19 @@ export function getWelcomeStepsWithoutDots(storeKey: string): Wizard.Step[] {
       componentPath: 'Welcome/Step1',
       props: {
         storeKey,
+        nextStep: `${welcomeUrl}/splash`,
+      },
+    },
+    {
+      path: '/splash',
+      componentPath: 'Welcome/Splash',
+      props: {
+        storeKey,
+        previousStep: `${welcomeUrl}`,
         nextStep: `${welcomeUrl}/step-2`,
       },
     },
+
   ];
 }
 
@@ -110,7 +120,7 @@ export function welcomeStepsDefinitions(storeKey: string): Wizard.Step[] {
       componentPath: 'Welcome/Step2',
       props: {
         storeKey,
-        previousStep: `${welcomeUrl}`,
+        previousStep: `${welcomeUrl}/splash`,
         nextStep: `${welcomeUrl}/step-3`,
       },
     },

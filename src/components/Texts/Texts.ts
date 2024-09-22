@@ -22,7 +22,7 @@ export const BaseTitle = styled.div`
 
 export const TitlePurple = styled.div`
   text-align: center; 
-  font-family: 'Biko';
+  font-family: 'Abel';
   font-weight: 400;
   line-height: 30.59px;
   color: ${colors.purple};

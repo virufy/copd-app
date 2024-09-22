@@ -86,7 +86,7 @@ const Header = () => {
   return (
     <>
       {
-        type !== 'null' && (
+        type !== 'null' && location.pathname !== '/welcome/splash' && (
           <HeaderContainer type={type} isMobile={isMobile} hasSubtitle={!!subtitle}>
             {(doGoBack && location.pathname !== '/welcome') && <ArrowLefContainer onClick={doGoBack}><ArrowLeft /></ArrowLefContainer>}
             <TitleContainer>

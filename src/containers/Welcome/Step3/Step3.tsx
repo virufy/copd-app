@@ -173,7 +173,7 @@ const Step4 = (p: Wizard.StepProps) => {
               id="Step2-PolicyTerms"
               label={(
                 <Trans i18nKey="consent:agree">
-                  I have read, understood, and agree to the terms of the <LinkPurple to="https://virufy.org/privacy_policy" target="_blank">Virufy Privacy Policy</LinkPurple>.
+                  I agree to the terms of the Virufy <LinkPurple to="https://virufy.org/privacy_policy" target="_blank">Privacy Policy</LinkPurple>.
                 </Trans>
               )}
               name="agreedPolicyTerms"
@@ -193,8 +193,8 @@ const Step4 = (p: Wizard.StepProps) => {
               label={(
                 <Trans i18nKey="consent:detection">
                   I hereby acknowledge and agree that processing shall be done for the purposes indicated
-                  above and, in particular but without limitation, for training artificial intelligence
-                  algorithms to analyze cough audio recordings to better determine spread of respiratory disease.
+                  above and, in particular but without limitation, for research and compiling a dataset
+                  needed for the development of artificial intelligence algorithms for device-based COPD detection.
                 </Trans>
                 )}
               name={name}

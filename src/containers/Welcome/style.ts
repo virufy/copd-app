@@ -3,7 +3,9 @@ import Select from 'react-select';
 
 import { ReactComponent as ArrowRight } from 'assets/icons/arrowRight.svg';
 import { ReactComponent as AboutUs } from 'assets/images/about-us.svg';
-import { ReactComponent as LogoSplash } from 'assets/virufyLogoWhiteBox.svg';
+import { ReactComponent as CollectionStudy } from 'assets/images/copd-collection-study.svg';
+import { ReactComponent as LogoSplashWhiteBG } from 'assets/virufyLogoWhiteBox.svg';
+import { ReactComponent as LogoSplash } from 'assets/virufyLogo.svg';
 import { ReactComponent as ChevronRightSVG } from 'assets/icons/chevronRight.svg';
 import { ReactComponent as checkCircleSVG } from 'assets/icons/checkCircle.svg';
 
@@ -94,6 +96,24 @@ export const InnerContainerShapeDown = styled.div`
     }
   }
 `;
+// /* Splash */
+// export const BottomContainer = styled.div<{ maxWidth?: number; mb?: number; }>`
+//   position: fixed;
+//   buttom: ${({ mb = 40 }) => mb}px;
+//   margin-bottom: 24px;
+//   display: block;
+
+//   text-align: left;
+//   width: calc(100% - 40px);
+//   height: 48px;
+//   align-items: center;
+//   // margin: 0 20px;
+
+//   // display: flex;
+//   // flex-direction: column;
+//   // height: 100%;
+//   ${({ maxWidth }) => maxWidth !== undefined && css`max-width: ${maxWidth}px;`}
+// `;
 
 /* Step 1 */
 export const LogoSubtitle = styled.div`
@@ -110,7 +130,7 @@ export const WelcomeInput = styled.input<{ error?: boolean }>`
   border-radius: 15px;
   color: ${props => props.theme.colors.mineShaft};
   font-family: 'Source Sans Pro';
-  margin: auto;
+  margin: 0 20px;
   padding: 12px 15px;
   border: 2px solid ${props => (props.error ? '#FF0000' : 'transparent')};
   
@@ -120,8 +140,6 @@ export const WelcomeInput = styled.input<{ error?: boolean }>`
   @media screen and (${props => props.theme.breakpoints.tablet}) {
     width: 100%;
   }
-  
-
   ::placeholder {
     color: #A3A3A3;
     font-size: 14px;
@@ -409,7 +427,7 @@ export const HeaderImage = styled.img`
   height: 100%;
 `;
 
-export const LogoWhiteBG = styled(LogoSplash)`
+export const LogoWhiteBG = styled(LogoSplashWhiteBG)`
   width: 109px;
   height: 143px;
   margin: auto;
@@ -421,6 +439,36 @@ export const LogoWhiteBG = styled(LogoSplash)`
     width: 212px;
     height: 280px;
   }
+`;
+
+export const LogoAndDescriptionContainer = styled.img`
+  /* Logo and Description */
+  position: absolute;
+  width: 246px;
+  height: 78px;
+  left: 0;
+  right: 0;
+  top: 47px;
+  margin-left: auto;
+  margin-right: auto;
+
+`;
+
+export const VirufyLogo = styled(LogoSplash)`
+  width: 109px;
+  height: 143px;
+  margin: auto;
+  position: absolute;
+  margin-left: -64%;
+  top: 26%;
+`;
+
+export const CollectionStudySVG = styled(CollectionStudy)`
+  position: absolute;
+  width: 290px;
+  height: 60px;
+  left: calc(50% - 290px/2 - 0.5px);
+  align: center;
 `;
 
 export const CustomPurpleText = styled.h2<{ mb?: number; mt?: number; isLight?: boolean; left?: boolean}>`
@@ -543,9 +591,9 @@ export const WelcomeItemList = styled.ul`
   font-size: 0.875rem; 
   font-weight: 400;
   line-height: 1.25rem;
-  list-style: none;
   margin: 11px auto 30px;
-  padding: 0 20px;
+  padding: 0 35px;
+  list-style-position: outside;
 
   width: 100%;
 
@@ -561,18 +609,8 @@ export const WelcomeItemListItem = styled.li`
   padding: 0;
   text-align: left;
 
-
-  &:before {
-    background-color: ${props => props.theme.colors.purple};
-    border-radius: 50%;
-    content: '';
-    display: inline-block;
-    margin-right: 8px;
-    position: relative;
-    top: -2.5px;
-
-    height: 4px;
-    width: 4px;
+  &::marker {
+    color: ${props => props.theme.colors.purple};
   }
 
   &:not(:first-of-type){

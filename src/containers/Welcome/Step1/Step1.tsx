@@ -2,22 +2,16 @@ import React, {
   memo, useEffect, useRef, useState,
 } from 'react';
 import { useHistory } from 'react-router-dom';
-import { Trans, useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import { useStateMachine } from 'little-state-machine';
-import usePortal from 'react-useportal';
 
 // Form
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers';
 import * as Yup from 'yup';
 
-// Assets
-import HeaderSplash from 'assets/images/baseLogoSplash.png';
-
-// Components
-import CreatedBy from 'components/CreatedBy';
-import WizardButtons from 'components/WizardButtons';
-import Link from 'components/Link';
+// // Assets
+import LogoAndDescription from 'assets/images/logo-and-description.png';
 
 // Update Action
 import { updateAction, resetStore } from 'utils/wizard';
@@ -39,11 +33,12 @@ import { scrollToTop } from 'helper/scrollHelper';
 import {
   WelcomeContent, WelcomeStyledForm,
   BoldBlackText, WelcomeSelect,
-  HeaderImageContainer,
-  HeaderImage,
-  LogoWhiteBG,
-  WelcomeNote,
-  BoldBlackTextPrivacy,
+  ContainerNextButton,
+  NextButton,
+  ArrowRightSVG,
+  WelcomeInput,
+  CollectionStudySVG,
+  LogoAndDescriptionContainer,
 } from '../style';
 
 declare interface OptionsProps {
@@ -93,9 +88,9 @@ const Step1 = (p: Wizard.StepProps) => {
   const resetExecuted = useRef(false);
 
   // Hooks
-  const { Portal } = usePortal({
-    bindTo: document && document.getElementById('wizard-buttons') as HTMLDivElement,
-  });
+  // const { Portal } = usePortal({
+  //   bindTo: document && document.getElementById('wizard-buttons') as HTMLDivElement,
+  // });
   const { t, i18n } = useTranslation();
   const { state, actions } = useStateMachine({ update: updateAction(p.storeKey), reset: resetStore() });
   const {
@@ -238,13 +233,16 @@ const Step1 = (p: Wizard.StepProps) => {
   return (
     <>
       <WelcomeStyledForm>
-        <HeaderImageContainer>
-          <HeaderImage
-            src={HeaderSplash}
-          />
-          <LogoWhiteBG />
-        </HeaderImageContainer>
-        <WelcomeContent mt={4}>
+        <LogoAndDescriptionContainer
+          src={LogoAndDescription}
+        />
+
+        <WelcomeContent mt={161}>
+          <CollectionStudySVG />
+        </WelcomeContent>
+
+        <WelcomeContent mt={70}>
+
           <BoldBlackText>
             {t('main:selectYourLanguage', 'Language')}
           </BoldBlackText>
@@ -297,33 +295,31 @@ const Step1 = (p: Wizard.StepProps) => {
             )}
           />
 
-          <WelcomeNote>
-            <Trans i18nKey="main:note">
-              <strong>Please note:</strong> This form is for data collection only.
-              It will not predict or diagnose any disease, disorder, or other health condition.
-              Virufy is conducting research and will use the information you provide for research.
-              The Virufy app doesn’t replace a doctor.
-              Remember that it is your responsibility to seek medical advice from your doctor.
-            </Trans>
-          </WelcomeNote>
+          <BoldBlackText>
+            {t('main:enterHospitalId', 'Hospital ID')}
+          </BoldBlackText>
 
-          <BoldBlackTextPrivacy>
-            <Trans i18nKey="main:privacyPolicy">
-              By proceeding you accept the terms of our <Link to="https://virufy.org/privacy_policy" target="_blank">Privacy Policy</Link>
-            </Trans>
-          </BoldBlackTextPrivacy>
+          <Controller
+            control={control}
+            name="hospitalId"
+            defaultValue=""
+            render={() => (
+              <WelcomeInput
+                placeholder={t('main:enterHospitalId', 'Enter Hospital ID')}
+              />
+            )}
+          />
 
           {
             activeStep && (
-              <Portal>
-                <WizardButtons
-                  invert
-                  leftDisabled={!isValid}
-                  leftLabel={t('helpVirufy:nextButton')}
-                  leftHandler={handleSubmit(onSubmit)}
-                />
-                <CreatedBy inline />
-              </Portal>
+              <ContainerNextButton>
+                <NextButton
+                  onClick={handleSubmit(onSubmit)}
+                  isDisable={!isValid}
+                >
+                  <ArrowRightSVG />
+                </NextButton>
+              </ContainerNextButton>
             )
           }
         </WelcomeContent>
