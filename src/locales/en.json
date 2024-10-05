@@ -360,39 +360,46 @@
     "headerTitle": "Questionnaire",
     "question1": {
       "agePlaceholder": "Enter age",
-      "question": "Please enter your age"
+      "question": "Please enter your age (in years)"
     },
     "question2":{
-      "question": "What races and/or ethnicities do you identify with?",
+      "question": "What races and ethnicities do you identify with?",
+      "note": "*Select all that apply",
       "options": {
-        "American Indian or Alaska Native": "American Indian or Alaska Native", 
-        "Asian": "Asian", 
-        "Black or African American": "Black or African American", 
-        "Hispanic, Latino, or Spanish Origin": "Hispanic, Latino, or Spanish Origin", 
-        "White": "White", 
-        "Other": "Other", 
+        "Sindhi": "Sindhi", 
+        "Punjabi": "Punjabi", 
+        "Baloch": "Baloch", 
+        "Pathan": "Pathan", 
+        "Muhajir": "Muhajir", 
+        "Others": "Others", 
         "Decline to answer": "Decline to answer"
       }
     },
     "question3":{
-      "question": "What was your sex at birth?",
+      "question": "What is your Biological sex (Sex Assigned at Birth)?",
+      "note1": "*Select all that apply",
       "note": "What sex were you assigned at birth, on your original birth certificate? This information is important for the AI to help detect COPD as the sound of the voice varies across genders.",
       "options": {
         "Female": "Female", 
         "Male": "Male",
-        "Decline to answer": "Decline to answer"
+        "Transgender": "Transgender",
+        "Non-binary": "Non-binary",
+        "Prefer to self-describe": "Prefer to self-describe",
+        "I prefer not to say": "I prefer not to say"
       }
     },
     "question4":{
       "question": "Do you smoke or have you smoked in the past?",
+      "note": "*Select all that apply",
       "options": {
         "Yes, current smoker": "Yes, current smoker",
         "Yes, in the past": "Yes, in the past",
-        "No, never smoked": "No, never smoked"
+        "No, I have never smoked": "No, I have never smoked"
       }
     },
     "question5":{
-      "question": "For how long have you smoked?",
+      "question": "For how long have you smoked in the past?",
+      "note": "*Select all that apply",
       "options": {
         "Less than one year": "Less than one year",
         "1 to 5 years": "1 to 5 years",
@@ -401,22 +408,24 @@
       }
     },
     "question6":{
-      "question": "Which type of smoking do you engage in?",
+      "question": "Which form of smoking do you engage in?",
       "note": "*Select all that apply",
       "options": {
-        "Tobacco Cigarettes": "Tobacco Cigarettes",
-        "E-cigarettes": "E-cigarettes",
-        "Vape": "Vape",
-        "Marijuana Cigarettes": "Marijuana Cigarettes"
+        "Tobacco cigarettes": "Tobacco cigarettes",
+        "E-cigarettes/ Vaping": "E-cigarettes/ Vaping",
+        "Smokeless Tobacco/ Chewing Tobacco": "Smokeless Tobacco/ Chewing Tobacco",
+        "Marijuana cigarettes": "Marijuana cigarettes",
+        "Others": "Others (Please specify)"
       }
     },
     "question7":{
-      "question": "On average, how many times per day did you smoke or currently smoke cigarettes / e-cigarettes?",
+      "question": "On average, how many cigarettes or e-cigarettes do you currently smoke or use to smoke per day?",
       "options": {
-        "One per day": "One per day",
-        "2-3 times a day": "2-3 times a day",
-        "3-5 times a day": "3-5 times a day",
-        "> 5 times a day": "> 5 times a day"
+        "1-10 cigarettes (< than one packet per day)": "1-10 cigarettes (< than one packet per day)",
+        "One packet per day (20 cigarettes)": "One packet per day (20 cigarettes)",
+        "1-2 packets per day": "1-2 packets per day",
+        "More than two packets per day": "More than two packets per day",
+        "I don’t smoke/didn’t smoke regularly": "I don’t smoke/didn’t smoke regularly"
       }
     },
     "question8":{
@@ -444,9 +453,10 @@
       "question": "Which of the below symptoms do you currently have?",
       "note": "*Select all that apply",
       "options": {
-        "A persistent chest cough with phlegm that does not go away": "A persistent chest cough with phlegm that does not go away",
+        "Shortness of breath/ Breathlessness": "Shortness of breath/ Breathlessness",
+        "persistent chest cough": "A persistent chest cough with phlegm that does not go away",
         "Frequent chest infections": "Frequent chest infections",
-        "Wheezing": "Wheezing",
+        "Persistent wheezing": "Persistent wheezing",
         "Weight loss": "Weight loss",
         "Tiredness": "Tiredness",
         "Swollen ankles without injury": "Swollen ankles without injury",
@@ -471,12 +481,17 @@
       "placeholderD": "Enter ratio"
     },
     "question12":{
-      "question": "Have you had COPD exacerbations?",
+      "question": "Have you had COPD exacerbations - refers to a worsening of the symptoms?",
+      "note": "*Select all that apply",
       "options": {
-        "Yes, frequently": "Yes, frequently",
-        "Yes, suffering from flare-ups currently": "Yes, suffering from flare-ups currently",
-        "Yes, rarely": "Yes, rarely",
-        "No, Never": "No, never"
+        "Yes, once in every 3 months": "Yes, once in every 3 months",
+        "None": "None in the past year",
+        "more than 2 per year": "Yes, I have had frequent exacerbations (more than 2 per year)",
+        "1-2 per year": "Yes, I have had occasional exacerbations (1-2 per year)",
+        "severe exacerbation requiring hospitalization": "Yes, I have had a severe exacerbation requiring hospitalization",
+        "never": "No, I have never had a COPD exacerbation",
+        "notSure": "I’m not sure if I have had an exacerbation",
+        "Others": "Others (Please specify)"
       }
     },
     "question13":{
@@ -487,48 +502,85 @@
       }
     },
     "question14":{
-      "question": "Which of the below conditions do you currently have?",
+      "question": "Do you have any of the following conditions?",
       "note": "*Select all that apply",
       "options": {
-        "None": "None",
         "Allergies": "Allergies",
         "Asthma": "Asthma",
         "Bronchitis": "Bronchitis",
         "Congestive heart failure": "Congestive heart failure",
         "COPD/emphysema": "COPD/emphysema",
-        "Extreme obesity": "Extreme obesity",
-        "Heart disease": "Heart disease",
+        "Coronary Heart Disease": "Coronary Heart Disease",
+        "Extreme Obesity": "Do you consider yourself to have extreme obesity (BMI of 40 or higher)",
         "HIV, AIDS, or impaired immune system": "HIV, AIDS, or impaired immune system",
-        "Other chronic lung disease": "Other chronic lung disease",
         "Pneumonia": "Pneumonia",
-        "Pulmonary fibrosis": "Pulmonary fibrosis",
+        "Diabetes": "Diabetes",
+        "Rheumatological diseases": "Rheumatological diseases ",
         "Sinusitis": "Sinusitis",
-        "Tuberculosis": "Tuberculosis",
         "Hypertension": "Hypertension",
-        "Hypothyroidism": "Hypothyroidism",
-        "Family member has or had suffered from a respiratory disease": "Family member has or had suffered from a respiratory disease",
+        "Thyroid Disease": "Thyroid Disease",
+        "Respiratory Disease": "A family member has or has suffered from a respiratory disease",
+        "Any history of Tuberculosis in the past": "Any history of Tuberculosis in the past",
+        "Chronic kidney disease (CKD)": "Chronic kidney disease (CKD)",
         "Other": "Other"
       }
     },
     "question15":{
-      "question": "Which of the following treatments have you undergone for your COPD?",
-      "note": "*Select all that apply",
+      "question": "What is the highest level of education you have completed?",
       "options": {
-        "None": "None",
-        "Oxygen therapy": "Oxygen therapy",
-        "Inhalers": "Inhalers",
-        "Pulmonary rehabilitation": "Pulmonary rehabilitation",
-        "Surgery or a lung transplant": "Surgery or a lung transplant",
-        "Oral treatments": "Oral treatments, e.g.  tablets",
-        "Other": "Other"
+        "No formal education": "No formal education",
+        "Primary school": "Primary school",
+        "Secondary school": "Secondary school",
+        "High School": "High School",
+        "College/University degree": "College/University degree",
+        "Postgraduate degree": "Postgraduate degree"
       }
     },
     "question16":{
-      "question": "Have you been infected with tuberculosis?",
+      "question": "Passive Smoking: Are you frequently exposed to secondhand smoke?",
       "options": {
         "Yes": "Yes",
-        "No": "No"
+        "No": "No",
+        "Sometimes": "Sometimes"
       }
+    },
+    "question17":{
+      "question": "What method do you primarily use for cooking at home?",
+      "options": {
+        "Gas stove": "Gas stove",
+        "Electric stove": "Electric stove",
+        "Wood or coal fire": "Wood or coal fire",
+        "Microwave": "Microwave",
+        "Other": "Other (please specify)"
+      }
+    },
+    "question18":{
+      "question": "Residential Area: What type of area do you live in?"
+    },
+    "question19":{
+      "question": "What is your current occupation?"
+    },
+    "question20":{
+      "question": "Can you climb a flight of stairs without assistance?",
+      "options": {
+        "Yes, without any difficulty": "Yes, without any difficulty",
+        "Yes, but with some difficulty": "Yes, but with some difficulty",
+        "No, I cannot climb stairs": "No, I cannot climb stairs"
+      }
+    },
+    "question21":{
+      "question": "Do you experience any of the following sleep issues?",
+      "note":"*Select all that apply",
+      "options": {
+        "Difficulty falling asleep": "Difficulty falling asleep",
+        "Frequent awakenings during the night": "Frequent awakenings during the night",
+        "Early morning awakenings": "Early morning awakenings",
+        "Daytime sleepiness": "Daytime sleepiness",
+        "None": "None"
+      }
+    },
+    "question22":{
+      "question": "Please specify the number of salbutamol puffs -Ventolin you take daily."
     },
     "headerQuestions": "Questionnaire",
     "requiredField": "Required Field",

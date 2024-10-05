@@ -30,18 +30,17 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
-  StepTracker,
   StepCounter,
+  StepTracker,
 } from "../style";
 
 const schema = Yup.object({
-  typeSmoking: Yup.array().of(Yup.string().required()).required('smoking type required').default([])
-  .test('SelecteOne', 'Select one', v => (!!v && v.length > 1)),
+  sleepDisorder: Yup.string().oneOf(["Difficulty falling asleep", "Frequent awakenings during the night", "Early morning awakenings", "Daytime sleepiness", "None"]).required(),
 }).defined();
 
-type Step6Type = Yup.InferType<typeof schema>;
+type Step21Type = Yup.InferType<typeof schema>;
 
-const Step7 = ({
+const Step22 = ({
   previousStep,
   nextStep,
   storeKey,
@@ -77,7 +76,7 @@ const Step7 = ({
     }
   }, [history, previousStep]);
 
-  const onSubmit = async (values: Step6Type) => {
+  const onSubmit = async (values: Step21Type) => {
     if (values) {
       action(values);
       if (nextStep) {
@@ -98,25 +97,25 @@ const Step7 = ({
 
   const options = [
     {
-      value: "Tobacco cigarettes",
-      label: t("questionary:question6.options.Tobacco cigarettes"),
+      value: "Difficulty falling asleep",
+      label: t("questionary:question21.options.Difficulty falling asleep"),
     },
     {
-      value: "E-cigarettes/ Vaping",
-      label: t("questionary:question6.options.E-cigarettes/ Vaping"),
+      value: "Frequent awakenings during the night",
+      label: t("questionary:question21.options.Frequent awakenings during the night"),
     },
     {
-      value: "Smokeless Tobacco/ Chewing Tobacco",
-      label: t("questionary:question6.options.Smokeless Tobacco/ Chewing Tobacco"),
+      value: "Early morning awakenings",
+      label: t("questionary:question21.options.Early morning awakenings"),
     },
     {
-      value: "Marijuana cigarettes",
-      label: t("questionary:question6.options.Marijuana cigarettes"),
+      value: "Daytime sleepiness",
+      label: t("questionary:question21.options.Daytime sleepiness"),
     },
     {
-      value: "Others",
-      label: t("questionary:question6.options.Others"),
-    },
+      value: "None",
+      label: t("questionary:question21.options.None"),
+    }
   ];
 
   return (
@@ -127,24 +126,24 @@ const Step7 = ({
       <StepTracker progress={metadata?.current} total={metadata?.total} />
 
       <QuestionText extraSpace first>
-        {t("questionary:question6.question")}
+        {t("questionary:question21.question")}
       </QuestionText>
-      <QuestionNote>{t("questionary:question6.note")}</QuestionNote>
       <Controller
         control={control}
-        name="typeSmoking"
+        name="sleepDisorder"
         defaultValue={undefined}
         render={({ onChange, value }) => (
           <OptionList
-            value={{ selected: value ? value : [] }}
-            onChange={(v) => onChange(v.selected)}
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={(v) => onChange(v.selected[0])}
             items={options}
           />
         )}
       />
       <ErrorMessage
         errors={errors}
-        name="typeSmoking"
+        name="sleepDisorder"
         render={({ message }) => (
           <p
             style={{
@@ -171,4 +170,4 @@ const Step7 = ({
   );
 };
 
-export default memo(Step7);
+export default memo(Step22);

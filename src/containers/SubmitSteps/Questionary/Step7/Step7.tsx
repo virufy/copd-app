@@ -37,10 +37,11 @@ import {
 const schema = Yup.object({
   freqSmoking: Yup.string()
     .oneOf([
-      "One per day",
-      "2-3 times a day",
-      "3-5 times a day",
-      "> 5 times a day",
+      "1-10 cigarettes (< than one packet per day)",
+      "One packet per day (20 cigarettes)",
+      "1-2 packets per day",
+      "More than two packets per day",
+      "I don’t smoke/didn’t smoke regularly"
     ])
     .required(),
 }).defined();
@@ -104,20 +105,24 @@ const Step8 = ({
 
   const options = [
     {
-      value: "One per day",
-      label: t("questionary:question7.options.One per day"),
+      value: "1-10 cigarettes (< than one packet per day)",
+      label: t("questionary:question7.options.1-10 cigarettes (< than one packet per day)"),
     },
     {
-      value: "2-3 times a day",
-      label: t("questionary:question7.options.2-3 times a day"),
+      value: "One packet per day (20 cigarettes)",
+      label: t("questionary:question7.options.One packet per day (20 cigarettes)"),
     },
     {
-      value: "3-5 times a day",
-      label: t("questionary:question7.options.3-5 times a day"),
+      value: "1-2 packets per day",
+      label: t("questionary:question7.options.1-2 packets per day"),
     },
     {
-      value: "> 5 times a day",
-      label: t("questionary:question7.options.> 5 times a day"),
+      value: "More than two packets per day",
+      label: t("questionary:question7.options.More than two packets per day"),
+    },
+    {
+      value: "I don’t smoke/didn’t smoke regularly",
+      label: t("questionary:question7.options.I don’t smoke/didn’t smoke regularly"),
     },
   ];
 

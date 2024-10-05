@@ -121,10 +121,6 @@ const Step15 = ({
 
   const options = [
     {
-      value: "None",
-      label: t("questionary:question14.options.None"),
-    },
-    {
       value: "Allergies",
       label: t("questionary:question14.options.Allergies"),
     },
@@ -141,55 +137,59 @@ const Step15 = ({
       label: t("questionary:question14.options.Congestive heart failure"),
     },
     {
-      value: "COPD/emphysema",
-      label: t("questionary:question14.options.COPD/emphysema"),
+      value: "COPD/emphysem",
+      label: t("questionary:question14.options.COPD/emphysem"),
     },
     {
-      value: "Extreme obesity",
-      label: t("questionary:question14.options.Extreme obesity"),
+      value: "Coronary Heart Disease",
+      label: t("questionary:question14.options.Coronary Heart Disease"),
     },
     {
-      value: "Heart disease",
-      label: t("questionary:question14.options.Heart disease"),
+      value: "Extreme Obesity",
+      label: t("questionary:question14.options.Extreme Obesity"),
     },
     {
       value: "HIV, AIDS, or impaired immune system",
-      label: t(
-        "questionary:question14.options.HIV, AIDS, or impaired immune system"
-      ),
-    },
-    {
-      value: "Other chronic lung disease",
-      label: t("questionary:question14.options.Other chronic lung disease"),
+      label: t("questionary:question14.options.HIV, AIDS, or impaired immune system"),
     },
     {
       value: "Pneumonia",
-      label: t("questionary:question14.options.Pneumonia"),
+      label: t(
+        "questionary:question14.options.Pneumonia"
+      ),
     },
     {
-      value: "Pulmonary fibrosis",
-      label: t("questionary:question14.options.Pulmonary fibrosis"),
+      value: "Diabetes",
+      label: t("questionary:question14.options.Diabetes"),
+    },
+    {
+      value: "Rheumatological diseases",
+      label: t("questionary:question14.options.Rheumatological diseases"),
     },
     {
       value: "Sinusitis",
       label: t("questionary:question14.options.Sinusitis"),
     },
     {
-      value: "Tuberculosis",
-      label: t("questionary:question14.options.Tuberculosis"),
-    },
-    {
       value: "Hypertension",
       label: t("questionary:question14.options.Hypertension"),
     },
     {
-      value: "Hypothyroidism",
-      label: t("questionary:question14.options.Hypothyroidism"),
+      value: "Thyroid Disease",
+      label: t("questionary:question14.options.Thyroid Disease"),
     },
     {
-      value: "Family member has or had suffered from a respiratory disease",
+      value: "Respiratory Disease",
+      label: t("questionary:question14.options.Respiratory Disease"),
+    },
+    {
+      value: "Any history of Tuberculosis in the past",
+      label: t("questionary:question14.options.Any history of Tuberculosis in the past"),
+    },
+    {
+      value: "Chronic kidney disease (CKD)",
       label: t(
-        "questionary:question14.options.Family member has or had suffered from a respiratory disease"
+        "questionary:question14.options.Chronic kidney disease (CKD)"
       ),
     },
     {

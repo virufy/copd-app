@@ -35,16 +35,15 @@ import {
 } from "../style";
 
 const schema = Yup.object({
-  treatments: Yup.array()
+  education: Yup.array()
     .of(
       Yup.string().oneOf([
-        "None",
-        "Oxygen therapy",
-        "Inhalers",
-        "Pulmonary rehabilitation",
-        "Surgery or a lung transplant",
-        "Oral treatments, e.g.  tablets",
-        "Other",
+        "No formal education",
+        "Primary school",
+        "Secondary school",
+        "High School",
+        "College/University degree",
+        "Postgraduate degree",
       ])
     )
     .min(1)
@@ -110,33 +109,29 @@ const Step16 = ({
 
   const options = [
     {
-      value: "None",
-      label: t("questionary:question15.options.None"),
+      value: "No formal education",
+      label: t("questionary:question15.options.No formal education"),
     },
     {
-      value: "Oxygen therapy",
-      label: t("questionary:question15.options.Oxygen therapy"),
+      value: "Primary school",
+      label: t("questionary:question15.options.Primary school"),
     },
     {
-      value: "Inhalers",
-      label: t("questionary:question15.options.Inhalers"),
+      value: "Secondary school",
+      label: t("questionary:question15.options.Secondary school"),
     },
     {
-      value: "Pulmonary rehabilitation",
-      label: t("questionary:question15.options.Pulmonary rehabilitation"),
+      value: "High School",
+      label: t("questionary:question15.options.High School"),
     },
     {
-      value: "Surgery or a lung transplant",
-      label: t("questionary:question15.options.Surgery or a lung transplant"),
+      value: "College/University degree",
+      label: t("questionary:question15.options.College/University degree"),
     },
     {
-      value: "Oral treatments, e.g.  tablets",
-      label: t("questionary:question15.options.Oral treatments"),
-    },
-    {
-      value: "Other",
-      label: t("questionary:question15.options.Other"),
-    },
+      value: "Postgraduate degree",
+      label: t("questionary:question15.options.Postgraduate degree"),
+    }
   ];
 
   return (
@@ -149,10 +144,9 @@ const Step16 = ({
       <QuestionText extraSpace first>
         {t("questionary:question15.question")}
       </QuestionText>
-      <QuestionNote>{t("questionary:question15.note")}</QuestionNote>
       <Controller
         control={control}
-        name="treatments"
+        name="education"
         defaultValue={undefined}
         render={({ onChange, value }) => (
           <OptionList
@@ -164,7 +158,7 @@ const Step16 = ({
       />
       <ErrorMessage
         errors={errors}
-        name="treatments"
+        name="education"
         render={({ message }) => (
           <p
             style={{

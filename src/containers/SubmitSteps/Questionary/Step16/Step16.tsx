@@ -35,7 +35,7 @@ import {
 } from "../style";
 
 const schema = Yup.object({
-  hadTuberculosis: Yup.string().oneOf(["Yes", "No"]).required(),
+  passiveSmoking: Yup.string().oneOf(["Yes", "No", "Sometimes"]).required(),
 }).defined();
 
 type Step16Type = Yup.InferType<typeof schema>;
@@ -104,6 +104,10 @@ const Step17 = ({
       value: "No",
       label: t("questionary:question16.options.No"),
     },
+    {
+      value: "Sometimes",
+      label: t("questionary:question16.options.Sometimes"),
+    }
   ];
 
   return (
@@ -118,7 +122,7 @@ const Step17 = ({
       </QuestionText>
       <Controller
         control={control}
-        name="hadTuberculosis"
+        name="passiveSmoking"
         defaultValue={undefined}
         render={({ onChange, value }) => (
           <OptionList
@@ -131,7 +135,7 @@ const Step17 = ({
       />
       <ErrorMessage
         errors={errors}
-        name="hadTuberculosis"
+        name="passiveSmoking"
         render={({ message }) => (
           <p
             style={{
@@ -147,7 +151,7 @@ const Step17 = ({
       {activeStep && (
         <Portal>
           <WizardButtons
-            leftLabel={t("questionary:submit")}
+            leftLabel={t("questionary:nextButton")}
             leftDisabled={!isValid}
             leftHandler={handleSubmit(onSubmit)}
             invert

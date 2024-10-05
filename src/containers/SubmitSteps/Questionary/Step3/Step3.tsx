@@ -35,7 +35,7 @@ import {
 } from "../style";
 
 const schema = Yup.object({
-  sex: Yup.string().oneOf(["Female", "Male", "Decline to answer"]).required(),
+  sex: Yup.string().oneOf(["Female", "Male", "Transgender", "Non-binary", "Prefer to self-describe", "I prefer not to say"]).required(),
 }).defined();
 
 type Step3Type = Yup.InferType<typeof schema>;
@@ -105,8 +105,20 @@ const Step4 = ({
       label: t("questionary:question3.options.Male"),
     },
     {
-      value: "Decline to answer",
-      label: t("questionary:question3.options.Decline to answer"),
+      value: "Transgender",
+      label: t("questionary:question3.options.Transgender"),
+    },
+    {
+      value: "Non-binary",
+      label: t("questionary:question3.options.Non-binary"),
+    },
+    {
+      value: "Prefer to self-describe",
+      label: t("questionary:question3.options.Prefer to self-describe"),
+    },
+    {
+      value: "I prefer not to say",
+      label: t("questionary:question3.options.I prefer not to say"),
     },
   ];
 

@@ -37,11 +37,11 @@ import {
 const schema = Yup.object({
   ethnicity: Yup.string()
     .oneOf([
-      "American Indian or Alaska Native",
-      "Asian",
-      "Black or African American",
-      "Hispanic, Latino, or Spanish Origin",
-      "White",
+      "Sindhi",
+      "Punjabi",
+      "Baloch",
+      "Pathan",
+      "Muhajir",
       "Other",
       "Decline to answer",
     ])
@@ -107,32 +107,32 @@ const Step3 = ({
 
   const options = [
     {
-      value: "American Indian or Alaska Native",
+      value: "Sindhi",
       label: t(
-        "questionary:question2:options.American Indian or Alaska Native"
+        "questionary:question2:options.Sindhi"
       ),
     },
     {
-      value: "Asian",
-      label: t("questionary:question2:options.Asian"),
+      value: "Punjabi",
+      label: t("questionary:question2:options.Punjabi"),
     },
     {
-      value: "Black or African American",
-      label: t("questionary:question2:options.Black or African American"),
+      value: "Baloch",
+      label: t("questionary:question2:options.Baloch"),
     },
     {
-      value: "Hispanic, Latino, or Spanish Origin",
+      value: "Pathan",
       label: t(
-        "questionary:question2:options.Hispanic, Latino, or Spanish Origin"
+        "questionary:question2:options.Pathan"
       ),
     },
     {
-      value: "White",
-      label: t("questionary:question2:options.White"),
+      value: "Muhajir",
+      label: t("questionary:question2:options.Muhajir"),
     },
     {
       value: "Other",
-      label: t("questionary:question2:options.Other"),
+      label: t("questionary:question2:options.Others"),
     },
     {
       value: "Decline to answer",

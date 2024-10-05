@@ -37,10 +37,14 @@ import {
 const schema = Yup.object({
   COPDExacerbations: Yup.string()
     .oneOf([
-      "Yes, frequently",
-      "Yes, suffering from flare-ups currently",
-      "Yes, rarely",
-      "No, Never",
+      "Yes, once in every 3 months",
+      "None",
+      "more than 2 per year",
+      "1-2 per year",
+      "severe exacerbation requiring hospitalization",
+      "never",
+      "notSure",
+      "Others"
     ])
     .required(),
 }).defined();
@@ -104,23 +108,39 @@ const Step13 = ({
 
   const options = [
     {
-      value: "Yes, frequently",
-      label: t("questionary:question12.options.Yes, frequently"),
+      value: "Yes, once in every 3 months",
+      label: t("questionary:question12.options.Yes, once in every 3 months"),
     },
     {
-      value: "Yes, suffering from flare-ups currently",
+      value: "None",
       label: t(
-        "questionary:question12.options.Yes, suffering from flare-ups currently"
+        "questionary:question12.options.None"
       ),
     },
     {
-      value: "Yes, rarely",
-      label: t("questionary:question12.options.Yes, rarely"),
+      value: "more than 2 per year",
+      label: t("questionary:question12.options.more than 2 per year"),
     },
     {
-      value: "No, Never",
-      label: t("questionary:question12.options.No, Never"),
+      value: "1-2 per year",
+      label: t("questionary:question12.options.1-2 per year"),
     },
+    {
+      value: "severe exacerbation requiring hospitalization",
+      label: t("questionary:question12.options.severe exacerbation requiring hospitalization"),
+    },
+    {
+      value: "never",
+      label: t("questionary:question12.options.never"),
+    },
+    {
+      value: "notSure",
+      label: t("questionary:question12.options.notSure"),
+    },
+    {
+      value: "Others",
+      label: t("questionary:question12.options.Others"),
+    }
   ];
 
   return (

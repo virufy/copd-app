@@ -38,15 +38,16 @@ const schema = Yup.object({
   symptoms: Yup.array()
     .of(
       Yup.string().oneOf([
+        "Shortness of breath/ Breathlessness",
         "A persistent chest cough with phlegm that does not go away",
         "Frequent chest infections",
-        "Wheezing",
+        "Persistent wheezing",
         "Weight loss",
         "Tiredness",
-        "Swollen ankles from a build-up of fluid (oedema)",
+        "Swollen ankles without injury",
         "Chest pain",
         "Coughing up blood",
-        "Other",
+        "Other"
       ])
     )
     .min(1)
@@ -112,18 +113,22 @@ const Step11 = ({
 
   const options = [
     {
-      value: "A persistent chest cough with phlegm that does not go away",
+      value: "Shortness of breath/ Breathlessness",
       label: t(
-        "questionary:question10.options.A persistent chest cough with phlegm that does not go away"
+        "questionary:question10.options.Shortness of breath/ Breathlessness"
       ),
+    },
+    {
+      value: "A persistent chest cough with phlegm that does not go away",
+      label: t("questionary:question10.options.persistent chest cough"),
     },
     {
       value: "Frequent chest infections",
       label: t("questionary:question10.options.Frequent chest infections"),
     },
     {
-      value: "Wheezing",
-      label: t("questionary:question10.options.Wheezing"),
+      value: "Persistent wheezing",
+      label: t("questionary:question10.options.Persistent wheezing"),
     },
     {
       value: "Weight loss",
@@ -139,7 +144,7 @@ const Step11 = ({
     },
     {
       value: "Chest pain",
-      label: t("questionary:question10.options.Chest pain"),
+      label: t("questionary:question10.options.Chest paind"),
     },
     {
       value: "Coughing up blood",
@@ -148,7 +153,7 @@ const Step11 = ({
     {
       value: "Other",
       label: t("questionary:question10.options.Other"),
-    },
+    }
   ];
 
   return (

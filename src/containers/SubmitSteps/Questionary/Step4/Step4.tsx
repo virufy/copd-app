@@ -36,7 +36,7 @@ import {
 
 const schema = Yup.object({
   isSmoking: Yup.string()
-    .oneOf(["Yes, current smoker", "Yes, in the past", "No, never smoked"])
+    .oneOf(["Yes, current smoker", "Yes, in the past", "No, I have never smoked"])
     .required("Required Field"),
 }).defined();
 
@@ -89,8 +89,8 @@ const Step5 = ({
       if (nextStep) {
         //skip smoking related questions when never smoked
         const nextAndPrevStep: any[] =
-          values.isSmoking === "No, never smoked"
-            ? [`${baseUrl}/questionary/step8`, currentURL]
+          values?.isSmoking === "No, I have never smoked"
+            ? [`${baseUrl}/questionary/step10`, currentURL]
             : [`${baseUrl}/questionary/step5`, null]; //an array of [nextStep, previousStep]
         setActiveStep(false);
         history.push(nextAndPrevStep[0], { previousStep: nextAndPrevStep[1] });
@@ -117,8 +117,8 @@ const Step5 = ({
       label: t("questionary:question4.options.Yes, in the past"),
     },
     {
-      value: "No, never smoked",
-      label: t("questionary:question4.options.No, never smoked"),
+      value: "No, I have never smoked",
+      label: t("questionary:question4.options.No, I have never smoked"),
     },
   ];
 

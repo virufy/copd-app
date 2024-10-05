@@ -20,7 +20,6 @@ import useHeaderContext from "hooks/useHeaderContext";
 import { scrollToTop } from "helper/scrollHelper";
 
 // Components
-import OptionList from "components/OptionList";
 import WizardButtons from "components/WizardButtons";
 
 // Styles
@@ -30,18 +29,23 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
-  StepTracker,
   StepCounter,
+  StepTracker,
 } from "../style";
 
 const schema = Yup.object({
-  typeSmoking: Yup.array().of(Yup.string().required()).required('smoking type required').default([])
-  .test('SelecteOne', 'Select one', v => (!!v && v.length > 1)),
+  numsalbutamolPuffs: Yup.string().required("Required Field").test(
+    'is-number', 
+    'Please enter a valid number', 
+    (value) => {
+      return !isNaN(Number(value)); 
+    }
+  ),
 }).defined();
 
-type Step6Type = Yup.InferType<typeof schema>;
+type Step22Type = Yup.InferType<typeof schema>;
 
-const Step7 = ({
+const Step23 = ({
   previousStep,
   nextStep,
   storeKey,
@@ -77,7 +81,7 @@ const Step7 = ({
     }
   }, [history, previousStep]);
 
-  const onSubmit = async (values: Step6Type) => {
+  const onSubmit = async (values: Step22Type) => {
     if (values) {
       action(values);
       if (nextStep) {
@@ -96,29 +100,6 @@ const Step7 = ({
     setSubtitle("");
   }, [handleDoBack, setDoGoBack, setTitle, setType, metadata, t, setSubtitle]);
 
-  const options = [
-    {
-      value: "Tobacco cigarettes",
-      label: t("questionary:question6.options.Tobacco cigarettes"),
-    },
-    {
-      value: "E-cigarettes/ Vaping",
-      label: t("questionary:question6.options.E-cigarettes/ Vaping"),
-    },
-    {
-      value: "Smokeless Tobacco/ Chewing Tobacco",
-      label: t("questionary:question6.options.Smokeless Tobacco/ Chewing Tobacco"),
-    },
-    {
-      value: "Marijuana cigarettes",
-      label: t("questionary:question6.options.Marijuana cigarettes"),
-    },
-    {
-      value: "Others",
-      label: t("questionary:question6.options.Others"),
-    },
-  ];
-
   return (
     <MainContainer>
       <StepCounter>
@@ -127,24 +108,28 @@ const Step7 = ({
       <StepTracker progress={metadata?.current} total={metadata?.total} />
 
       <QuestionText extraSpace first>
-        {t("questionary:question6.question")}
+        {t("questionary:question22.question")}
       </QuestionText>
-      <QuestionNote>{t("questionary:question6.note")}</QuestionNote>
       <Controller
         control={control}
-        name="typeSmoking"
-        defaultValue={undefined}
-        render={({ onChange, value }) => (
-          <OptionList
-            value={{ selected: value ? value : [] }}
-            onChange={(v) => onChange(v.selected)}
-            items={options}
-          />
+        name="numSalbutamolPuffs"
+        defaultValue=""
+        render={({ onChange, value, name }) => (
+          <>
+            <QuestionInput
+              name={name}
+              value={value}
+              onChange={onChange}
+              type="text"
+              // placeholder={t("questionary:question22.agePlaceholder")}
+              autoComplete="Off"
+            />
+          </>
         )}
       />
       <ErrorMessage
         errors={errors}
-        name="typeSmoking"
+        name="numSalbutamolPuffs"
         render={({ message }) => (
           <p
             style={{
@@ -160,7 +145,7 @@ const Step7 = ({
       {activeStep && (
         <Portal>
           <WizardButtons
-            leftLabel={t("questionary:nextButton")}
+            leftLabel={t("questionary:submit")}
             leftDisabled={!isValid}
             leftHandler={handleSubmit(onSubmit)}
             invert
@@ -171,4 +156,4 @@ const Step7 = ({
   );
 };
 
-export default memo(Step7);
+export default memo(Step23);

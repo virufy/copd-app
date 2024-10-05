@@ -30,18 +30,17 @@ import {
   QuestionNote,
   QuestionInput,
   InputLabel,
-  StepTracker,
   StepCounter,
+  StepTracker,
 } from "../style";
 
 const schema = Yup.object({
-  typeSmoking: Yup.array().of(Yup.string().required()).required('smoking type required').default([])
-  .test('SelecteOne', 'Select one', v => (!!v && v.length > 1)),
+  stairs: Yup.string().oneOf(["Yes, without any difficulty", "Yes, but with some difficulty", "No, I cannot climb stairs"]).required(),
 }).defined();
 
-type Step6Type = Yup.InferType<typeof schema>;
+type Step20Type = Yup.InferType<typeof schema>;
 
-const Step7 = ({
+const Step21 = ({
   previousStep,
   nextStep,
   storeKey,
@@ -77,7 +76,7 @@ const Step7 = ({
     }
   }, [history, previousStep]);
 
-  const onSubmit = async (values: Step6Type) => {
+  const onSubmit = async (values: Step20Type) => {
     if (values) {
       action(values);
       if (nextStep) {
@@ -98,25 +97,17 @@ const Step7 = ({
 
   const options = [
     {
-      value: "Tobacco cigarettes",
-      label: t("questionary:question6.options.Tobacco cigarettes"),
+      value: "Yes, without any difficulty",
+      label: t("questionary:question20.options.Yes, without any difficulty"),
     },
     {
-      value: "E-cigarettes/ Vaping",
-      label: t("questionary:question6.options.E-cigarettes/ Vaping"),
+      value: "Yes, but with some difficulty",
+      label: t("questionary:question20.options.Yes, but with some difficulty"),
     },
     {
-      value: "Smokeless Tobacco/ Chewing Tobacco",
-      label: t("questionary:question6.options.Smokeless Tobacco/ Chewing Tobacco"),
-    },
-    {
-      value: "Marijuana cigarettes",
-      label: t("questionary:question6.options.Marijuana cigarettes"),
-    },
-    {
-      value: "Others",
-      label: t("questionary:question6.options.Others"),
-    },
+      value: "No, I cannot climb stairs",
+      label: t("questionary:question20.options.No, I cannot climb stairs"),
+    }
   ];
 
   return (
@@ -127,24 +118,24 @@ const Step7 = ({
       <StepTracker progress={metadata?.current} total={metadata?.total} />
 
       <QuestionText extraSpace first>
-        {t("questionary:question6.question")}
+        {t("questionary:question20.question")}
       </QuestionText>
-      <QuestionNote>{t("questionary:question6.note")}</QuestionNote>
       <Controller
         control={control}
-        name="typeSmoking"
+        name="stairs"
         defaultValue={undefined}
         render={({ onChange, value }) => (
           <OptionList
-            value={{ selected: value ? value : [] }}
-            onChange={(v) => onChange(v.selected)}
+            singleSelection
+            value={{ selected: value ? [value] : [] }}
+            onChange={(v) => onChange(v.selected[0])}
             items={options}
           />
         )}
       />
       <ErrorMessage
         errors={errors}
-        name="typeSmoking"
+        name="stairs"
         render={({ message }) => (
           <p
             style={{
@@ -171,4 +162,4 @@ const Step7 = ({
   );
 };
 
-export default memo(Step7);
+export default memo(Step21);
